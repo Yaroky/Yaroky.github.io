@@ -1,0 +1,56 @@
+// main: ../style.less
+
+.social__icon {
+  margin: 4rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 28px;
+  a {
+    width: 55px;
+    height: 55px;
+    transition: background 0.2s linear, box-shadow 0.2s linear;
+    cursor: default;
+    
+
+    &:nth-child(1) {
+      background: url("../img/main/icons/icon-2.svg") no-repeat;
+    }
+    &:nth-child(2) {
+      background: url("../img/main/icons/icon.svg") no-repeat;
+    }
+    &:nth-child(3) {
+      background: url("../img/main/icons/icon-3.svg") no-repeat;
+    }
+    &:nth-child(4) {
+      background: url("../img/main/icons/icon-5.svg") no-repeat;
+    }
+    &:nth-child(5) {
+      background: url("../img/main/icons/icon-4.svg") no-repeat;
+    }
+    &:nth-child(6) {
+      background: url("../img/main/icons/icon-1.svg") no-repeat;
+    }
+
+    &:all:hover {
+      box-shadow: 0px 12px 20px rgba(216, 166, 20, 0.31);
+    }
+    &:nth-child(1):hover {
+      background: url("../img/main/icons__black/icon-2.svg") no-repeat;
+    }
+    &:nth-child(2):hover {
+      background: url("../img/main/icons__black/icon.svg") no-repeat;
+    }
+    &:nth-child(3):hover {
+      background: url("../img/main/icons__black/icon-3.svg") no-repeat;
+    }
+    &:nth-child(4):hover {
+      background: url("../img/main/icons__black/icon-5.svg") no-repeat;
+    }
+    &:nth-child(5):hover {
+      background: url("../img/main/icons__black/icon-4.svg") no-repeat;
+    }
+    &:nth-child(6):hover {
+      background: url("../img/main/icons__black/icon-1.svg") no-repeat;
+    }
+  }
+}

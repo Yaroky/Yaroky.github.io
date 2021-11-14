@@ -1,0 +1,229 @@
+// main: ../style.less
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+
+  .footer__nav {
+    a {
+      position: relative;
+      color: @black;
+      font-weight: 500;
+      font-size: 0.93rem;
+      line-height: 143%;
+      text-align: center;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      flex-grow: 0;
+      margin-right: 22px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        background-color: @black;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        z-index: 1;
+        transition: width 0.2s linear;
+      }
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .footer__tel {
+    a {
+      position: relative;
+      font-weight: 500;
+      font-size: 0.93rem;
+      line-height: 143%;
+      text-align: center;
+      letter-spacing: 0.01em;
+
+      color: @black;
+      margin-right: 2.06rem;
+      &:last-child {
+        margin-right: 0;
+      }
+      &:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        background-color: @black;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        z-index: 1;
+        transition: width 0.2s linear;
+      }
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .footer__social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      margin-right: 1.94rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.footer__bottom {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  p {
+    font-size: 0.8rem;
+    line-height: 14px;
+    color: @gray;
+    &:first-child:after {
+      content: "";
+      position: absolute;
+      width: 70%;
+      padding-top: 0.4rem;
+      left: 14%;
+      border-bottom: 1px solid #7b827d;
+    }
+  }
+}
+.social-btns .btn,
+.social-btns .btn:before,
+.social-btns .btn .fa {
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+  -webkit-transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+  transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+}
+.social-btns .vk{
+    margin-left: 0 !important;
+}
+.social-btns .vk{
+    margin-left: 0 !important;
+}
+.social-btns .btn:before {
+  top: 90%;
+  left: -110%;
+}
+
+.social-btns .btn .fa {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.social-btns .btn.vk:before {
+  background-color: #3b5998;
+}
+
+.social-btns .btn.vk .fa {
+  color: #3b5998;
+}
+
+
+.social-btns .btn.instagram:before {
+  background-color: rgb(255, 51, 136);
+}
+
+.social-btns .btn.instagram .fa {
+  color: rgb(255, 51, 136);
+}
+
+.social-btns .btn.google:before {
+  background-color: #dc4a38;
+}
+
+.social-btns .btn.google .fa {
+  color: #dc4a38;
+}
+
+.social-btns .btn.dribbble:before {
+  background-color: #f26798;
+}
+
+.social-btns .btn.dribbble .fa {
+  color: #f26798;
+}
+
+.social-btns .btn.skype:before {
+  background-color: #00aff0;
+}
+
+.social-btns .btn.skype .fa {
+  color: #00aff0;
+}
+
+.social-btns .btn:focus:before,
+.social-btns .btn:hover:before {
+  top: -10%;
+  left: -10%;
+}
+
+.social-btns .btn:focus .fa,
+.social-btns .btn:hover .fa {
+  color: #fff;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.social-btns {
+  height: 30px;
+  margin: auto;
+  font-size: 0;
+  text-align: center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.social-btns .btn {
+  display: inline-block;
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 10px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 28%;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+  opacity: 0.99;
+}
+
+
+.google {
+  margin-right: 0;
+}
+
+.social-btns .btn:before {
+  content: "";
+  width: 120%;
+  height: 120%;
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.social-btns .btn .fa {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}

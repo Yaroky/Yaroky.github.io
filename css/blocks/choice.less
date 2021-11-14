@@ -1,0 +1,53 @@
+// main: ../style.less
+
+.choice{
+    margin-bottom: 8.66rem;
+}
+.choice__title {
+  font-weight: bold;
+  font-size: 1.33rem;
+  line-height: 150%;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.choice__text {
+  font-weight: bold;
+  font-size: 3.66rem;
+  line-height: 120%;
+  margin-bottom: 4.66rem;
+  text-align: center;
+}
+
+.choice__card {
+  display: flex;
+  justify-content: space-around;
+
+  img {
+    max-width: 70%;
+    padding: 9.16% 6.66%;
+
+    transition: box-shadow 0.1s linear;
+    // box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.04),
+    //   inset 0px 4px 4px rgba(255, 255, 255, 0.15);
+    filter: drop-shadow(0px 92px 136px rgba(0, 0, 0, 0.05));
+    border-radius: 40px;
+
+    &:first-child {
+      z-index: 2;
+      background: linear-gradient(112.4deg, #df5de0 13.38%, #a430a6 88.62%);
+      border-radius: 4px;
+      &:hover {
+        box-shadow: 0px 0px 50px #c94ccb;
+      }
+    }
+    &:last-child {
+      background: linear-gradient(307.69deg, #fff228 14.59%, #fff564 86.94%);
+      border-radius: 4px;
+      &:hover {
+        box-shadow: 0px 0px 50px #fff454;
+      }
+    }
+  }
+}

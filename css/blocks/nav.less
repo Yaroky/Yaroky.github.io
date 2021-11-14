@@ -1,0 +1,37 @@
+// main: ../style.less
+
+.header__nav {
+  .nav__links {
+    a {
+      position: relative;
+      margin-right: 3rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 111%;
+      letter-spacing: 0.01em;
+
+      color: @black;
+      &:last-child {
+        margin-right: 0;
+      }
+      &:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        background-color: @black;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        z-index: 1;
+        transition: width 0.2s linear;
+      }
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

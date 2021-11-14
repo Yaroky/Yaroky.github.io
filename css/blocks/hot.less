@@ -1,0 +1,54 @@
+// main: ../style.less
+
+.hot{
+    margin-bottom: 11.33rem;
+}
+.hot__inner {
+  display: flex;
+  justify-content: space-around !important;
+  align-items: center;
+
+  .hot__prime {
+    max-width: 25%;
+    position: relative;
+
+    .hot__title {
+      font-weight: bold;
+      font-size: 2.333rem;
+      line-height: 131%;
+      margin-bottom: 1.33rem;
+    }
+    .hot__image {
+    //   background: url("../img/hot/fire.png") no-repeat;
+      height: 32px;
+      width: 32.33px;
+      position: absolute;
+      z-index: 2;
+      left: 8rem;
+      top: -1.2rem;
+    }
+    .hot__content {
+      font-size: 1.06rem;
+      line-height: 162%;
+      letter-spacing: 0.01em;
+      color: @gray;
+    }
+  }
+  .hot__item {
+    max-width: 25%;
+
+    .hot__bigText {
+      font-weight: bold;
+      font-size: 1.333rem;
+      line-height: 140%;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.2rem;
+    }
+    .hot__text {
+      font-size: 1.06rem;
+      line-height: 162%;
+      letter-spacing: 0.01em;
+      color: @gray;
+    }
+  }
+}
