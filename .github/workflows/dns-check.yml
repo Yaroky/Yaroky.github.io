@@ -1,0 +1,24 @@
+name: dns-check
+on: push
+jobs:
+  dig:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get -qq install -y dnsutils >/dev/null || true
+      - run: |
+          set -x
+          dig +short NS yaroslavalekhno.ru @8.8.8.8
+          dig +short NS ru. @8.8.8.8
+          dig NS yaroslavalekhno.ru @a.dns.ripn.net +norec | sed -n '/AUTHORITY/,/^$/p'
+          for ns in ns1.reg.ru ns2.reg.ru; do
+            dig +short A $ns @8.8.8.8
+            dig A yaroslavalekhno.ru @$ns +norec +time=5 +tries=2
+            dig TXT _github-pages-challenge-Yaroky.yaroslavalekhno.ru @$ns +norec +time=5 +tries=2 | grep -A3 'ANSWER\|status'
+            dig CNAME www.yaroslavalekhno.ru @$ns +norec +time=5 +tries=2 | grep -A3 'ANSWER\|status'
+          done
+          dig A yaroslavalekhno.ru @8.8.8.8 | grep -A6 'status\|ANSWER'
+          dig A yaroslavalekhno.ru @1.1.1.1 | grep -A6 'status\|ANSWER'
+          dig DS yaroslavalekhno.ru @8.8.8.8 +short
+          dig CAA yaroslavalekhno.ru @8.8.8.8 +short
+          dig TXT _github-pages-challenge-Yaroky.yaroslavalekhno.ru @8.8.8.8 +short
+          dig +trace A yaroslavalekhno.ru | tail -20
