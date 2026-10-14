@@ -3701,7 +3701,7 @@ try {
     var d = collect(),
       subj = (d.role === 'HR / компания' ? 'Вакансия' : 'Заявка') + ' с сайта: ' + d.name;
     var body = 'Имя: ' + d.name + '\nКонтакт: ' + d.contact + '\nРоль: ' + d.role + '\n\n' + d.message;
-    fetch('https://formsubmit.co/ajax/' + 'alekno.yaroslav@gmail.com', {
+    fetch('https://formsubmit.co/ajax/' + 'yariksmeh@yandex.ru', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -3727,7 +3727,7 @@ try {
       })
       .catch(function() {
         var m = encodeURIComponent,
-          to = 'alekno.yaroslav@gmail.com';
+          to = 'yariksmeh@yandex.ru';
         busy(false);
         msg.className = 'form-note err';
         msg.innerHTML = 'Заявка не\u00a0отправилась. Письмо с\u00a0вашими ответами уже готово, откройте его в\u00a0' +
