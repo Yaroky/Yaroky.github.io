@@ -2289,6 +2289,40 @@ form .btn {
   color: #c0362c;
   font-weight: 600
 }
+/* согласие на обработку ПДн: отдельная галочка, по умолчанию не отмечена */
+.agree {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  cursor: pointer
+}
+.agree input {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 1px 0 0;
+  border-radius: 5px;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1.5px var(--line);
+  cursor: pointer;
+  transition: background .2s, box-shadow .2s
+}
+.agree input:checked {
+  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='m4.5 9.5 3 3 6-7' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;
+  box-shadow: none
+}
+.agree input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px
+}
+.agree a {
+  color: var(--accent)
+}
 [data-role="client"] [data-for="hr"],
 [data-role="hr"] [data-for="client"] {
   display: none !important
@@ -2969,12 +3003,17 @@ main:focus {
 .exp-sum .btn {
   justify-self: start
 }
+/* на планшете и телефоне «Коротко» идёт перед опытом */
+.exp-sum {
+  order: -1
+}
 @media (min-width:1100px) {
   .exp-wrap {
     grid-template-columns: minmax(0, 1fr) 300px;
     align-items: start
   }
   .exp-sum {
+    order: 0;
     position: sticky;
     top: calc(var(--nav) + 24px)
   }
@@ -3020,7 +3059,7 @@ main:focus {
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Перейти к содержимому</a>
+<a class="skip" href="#main">Перейти к содержимому</a>
 <script>
 try {
   var t = localStorage.getItem('ya-theme');
@@ -3106,7 +3145,8 @@ try {
       <ul>
         <li>Сайт, лендинг или приложение: от структуры до макетов для разработки</li>
         <li>Этапы и сроки согласуем до старта</li>
-        <li>Результат оцениваю по заявкам и по тому, легко ли людям пользоваться сайтом</li>
+        <li>Правки бесплатные и без лимита итераций</li>
+        <li>Результат оцениваю по заявкам и по тому, легко ли людям пользоваться сайтом</li>
       </ul>
       <a class="btn btn-ink" href="#services">Услуги и сроки</a>
     </article>
@@ -3134,13 +3174,13 @@ try {
       <div class="svc-top">
         <h3>Корпоративный сайт</h3><span class="term"><b>от 90 000 ₽</b>от 4 недель</span>
       </div>
-      <p>Продумываю структуру и путь от первого экрана до заявки, чтобы сайтом было удобно пользоваться и клиентам, и отделу продаж.</p>
+      <p>Продумываю структуру и путь от первого экрана до заявки, чтобы сайтом было удобно пользоваться и клиентам, и отделу продаж.</p>
       <p class="for">На выходе: карта сайта, прототип и макеты в трёх адаптивах</p></a>
     <a class="svc" href="#contact" data-need="Лендинг">
       <div class="svc-top">
         <h3>Лендинг и редизайн</h3><span class="term"><b>от 50 000 ₽</b>от 2 недель</span>
       </div>
-      <p>Помогаю рассказать о продукте проще: убираю со страницы лишнее и ставлю кнопку заявки туда, где человек уже готов её нажать.</p>
+      <p>Помогаю рассказать о продукте проще: убираю со страницы лишнее и ставлю кнопку заявки туда, где человек уже готов её нажать.</p>
       <p class="for">На выходе: прототип и макет в трёх адаптивах</p></a>
     <a class="svc" href="#contact" data-need="Приложение">
       <div class="svc-top">
@@ -3158,10 +3198,10 @@ try {
       <div class="svc-top">
         <h3>UX-аудит</h3><span class="term"><b>от 5 000 ₽</b>от 5 дней</span>
       </div>
-      <p>Нахожу, где пользователи теряются и не доходят до заявки. Отдаю список правок по приоритету.</p>
+      <p>Нахожу, где пользователи теряются и не доходят до заявки. Отдаю список правок по приоритету.</p>
       <p class="for">На выходе: отчёт с проблемами и правками по приоритету</p></a>
   </div>
-  <p class="svc-note">Точная цена зависит от объёма. Назову её после короткого созвона и пришлю смету по этапам.</p>
+  <p class="svc-note">Точная цена зависит от объёма. Назову её после короткого созвона и пришлю смету по этапам. Все правки бесплатные: не ограничиваю число итераций и не беру доплату за доработки.</p>
 </section>
 
 <!-- ══════════ Работы с результатом ══════════ -->
@@ -3179,7 +3219,7 @@ try {
       <div class="case-body">
         <p class="meta"><span>Техгаз-ТК</span><span>B2B, корпоративный сайт</span><span>2023–2025</span></p>
         <h3>Корпоративный сайт с каталогом и AR-моделями оборудования</h3>
-        <p>Пересобрал структуру и сценарии, чтобы клиенты быстрее находили оборудование и оставляли заявку.</p>
+        <p>Пересобрал структуру и сценарии, чтобы клиенты быстрее находили оборудование и оставляли заявку.</p>
         <span class="more">Смотреть кейс <span class="arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </div>
     </a>
@@ -3190,7 +3230,7 @@ try {
       <div class="case-body">
         <p class="meta"><span>SkyDNS</span><span>Лендинг, редизайн</span><span>2024</span></p>
         <h3>Редизайн лендинга сервиса интернет-фильтрации</h3>
-        <p>Убрал лишнее и перестроил страницу так, чтобы её читали по порядку и доходили до заявки.</p>
+        <p>Убрал лишнее и перестроил страницу так, чтобы её читали по порядку и доходили до заявки.</p>
         <span class="more">Смотреть кейс <span class="arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </div>
     </a>
@@ -3201,7 +3241,7 @@ try {
       <div class="case-body">
         <p class="meta"><span>ПромУрал</span><span>B2B, сайт с нуля</span><span>2024</span></p>
         <h3>Корпоративный сайт промышленной компании</h3>
-        <p>Сделал структуру и дизайн так, чтобы по сайту сразу было понятно, что продаёт компания и как оставить запрос.</p>
+        <p>Сделал структуру и дизайн так, чтобы по сайту сразу было понятно, что продаёт компания и как оставить запрос.</p>
         <span class="more">Смотреть кейс <span class="arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
       </div>
     </a>
@@ -3228,7 +3268,7 @@ try {
   <div class="sec-head">
     <p class="kicker">Flow · Процесс</p>
     <h2 id="process-h">Как проходит работа</h2>
-    <p>Процесс один и тот же в команде и с заказчиком. На каждом этапе понятно, что делаю я и что нужно от вас.</p>
+    <p>Процесс один и тот же в команде и с заказчиком. На каждом этапе понятно, что делаю я и что нужно от вас.</p>
   </div>
   <ol class="steps">
     <li class="step"><span class="n">01</span>
@@ -3253,8 +3293,8 @@ try {
     </li>
     <li class="step"><span class="n">05</span>
       <h3>Контроль</h3>
-      <p>Проверяю вёрстку и смотрю метрики после запуска.</p>
-      <p class="you">От вас: доступ к аналитике</p>
+      <p>Сверяю вёрстку с макетами и помогаю довести запуск до конца.</p>
+      <p class="you">От вас: ссылка на тестовую версию</p>
     </li>
   </ol>
 </section>
@@ -3263,7 +3303,7 @@ try {
 <section class="wrap" id="ai" aria-label="Про AI и вайбкодинг">
   <div class="ai">
     <div class="ai-head">
-      <p class="ai-pin"><span aria-hidden="true">!</span>Важно · про AI</p>
+      <p class="ai-pin"><span aria-hidden="true">!</span>Важно · про AI</p>
       <h3>Вайбкодинг ускоряет работу, но не думает за меня</h3>
       <p>Пользуюсь AI и вайбкодингом и не скрываю этого. Рутину отдаю им, а сам трачу больше времени на то, от чего реально зависит результат.</p>
     </div>
@@ -3336,7 +3376,7 @@ try {
           <ul>
             <li>Спроектировал мобильное приложение с нуля: структура, ключевые сценарии и логика взаимодействия</li>
             <li>Собрал user flow, навигацию и состояния интерфейса, экраны в светлой и тёмной темах</li>
-            <li>Сделал UI-kit, чтобы экраны выглядели одинаково, а новые собирались быстрее</li>
+            <li>Сделал UI-kit, чтобы экраны выглядели одинаково, а новые собирались быстрее</li>
             <li>Участвовал в обсуждении логики продукта и синхронизировал дизайн с командой. Продукт не запустился</li>
           </ul>
           <div class="tags"><span>Mobile</span><span>iOS / Android</span><span>UI-kit</span>
@@ -3351,8 +3391,8 @@ try {
           <ul>
             <li>Спроектировал интерфейс для работы с нейросетями: чаты и генерация контента</li>
             <li>Спроектировал мобильное и десктопное приложения в одном стиле и на общих компонентах</li>
-            <li>Собрал UI-kit, чтобы не путаться в большом количестве экранов, а разработчикам было проще их собирать</li>
-            <li>Сделал лендинг продукта и участвовал в обсуждении, куда его развивать</li>
+            <li>Собрал UI-kit, чтобы не путаться в большом количестве экранов, а разработчикам было проще их собирать</li>
+            <li>Сделал лендинг продукта и участвовал в обсуждении, куда его развивать</li>
           </ul>
           <div class="tags"><span>AI</span><span>Web + Mobile</span><span>Лендинг</span>
           </div>
@@ -3366,7 +3406,7 @@ try {
       <ul>
         <li>Продуктовая команда и фриланс</li>
         <li>B2B, стартапы, мобильные приложения</li>
-        <li>От структуры до вёрстки на Tilda</li>
+        <li>От структуры до вёрстки на Tilda</li>
       </ul><a class="btn btn-line" href="https://drive.google.com/file/d/1qphbUDxZQ8-MqYrdRZzCcpZbJCbvMqje/view?usp=sharing" target="_blank" rel="noopener">Резюме, PDF</a>
     </aside>
   </div>
@@ -3378,7 +3418,7 @@ try {
           <p>Основной инструмент: компоненты, auto layout, прототипы, передача в разработку</p>
         </div>
         <div><b>Дизайн-системы</b>
-          <p>UI-kit и библиотеки компонентов, чтобы интерфейс оставался единым</p>
+          <p>UI-kit и библиотеки компонентов, чтобы интерфейс оставался единым</p>
         </div>
         <div><b>UX-проектирование</b>
           <p>Структура, CJM, user flow и состояния экранов до визуала</p>
@@ -3404,7 +3444,7 @@ try {
       <h3>Soft skills</h3>
       <div class="sk one">
         <div><b>Ответственность</b>
-          <p>Укладываюсь в сроки, а если вижу риск, говорю о нём заранее, а не в день сдачи</p>
+          <p>Укладываюсь в сроки, а если вижу риск, говорю о нём заранее, а не в день сдачи</p>
         </div>
         <div><b>Коммуникация</b>
           <p>Нахожу общий язык с разработкой, маркетингом и заказчиком, даже когда мнения расходятся</p>
@@ -3431,7 +3471,7 @@ try {
     <div class="panel">
       <h3>Курсы, с 2021 года</h3>
       <ul class="courses">
-        <li><b>UX/UI-дизайн</b><span>Алексей Бычков. Работы вошли в топ-5 выпуска</span><em class="honor honor-sm">Сертификат с отличием</em>
+        <li><b>UX/UI-дизайн</b><span>Алексей Бычков. Работы вошли в топ-5 выпуска</span><em class="honor honor-sm">Сертификат с отличием</em>
         </li>
         <li><b>Веб-дизайн с WOW-эффектом</b><span>YudaevSchool</span>
         </li>
@@ -3447,7 +3487,7 @@ try {
   <div class="contact" data-role="client">
     <div>
       <h2 id="contact-h"><span data-for="client">Расскажите о задаче</span><span data-for="hr">Обсудим вакансию</span></h2>
-      <p class="sub" data-for="client">Отвечу в течение дня. Если удобнее, пишите сразу в Telegram.</p>
+      <p class="sub" data-for="client">Отвечу в течение дня. Если удобнее, пишите сразу в Telegram.</p>
       <p class="sub" data-for="hr">Пришлите вакансию, отвечу в течение дня. Резюме можно открыть сразу.</p>
       <div class="ch">
         <a href="https://t.me/yaroslav_alekhno" target="_blank" rel="noopener"><span><small>Telegram</small>@yaroslav_alekhno</span><span class="arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
@@ -3487,9 +3527,9 @@ try {
         <div><input type="radio" name="source" id="src-0" value="Поиск"><label for="src-0">Поиск</label><input type="radio" name="source" id="src-1" value="Telegram"><label for="src-1">Telegram</label><input type="radio" name="source" id="src-2" value="hh.ru"><label for="src-2">hh.ru</label><input type="radio" name="source" id="src-3" value="Behance"><label for="src-3">Behance</label><input type="radio" name="source" id="src-4" value="Рекомендация"><label for="src-4">Рекомендация</label><input type="radio" name="source" id="src-5" value="Другое"><label for="src-5">Другое</label><input class="src-other" id="src-other" name="source_other" placeholder="Напишите, где именно" aria-label="Где вы обо мне узнали">
         </div>
       </fieldset>
+      <label class="agree" for="f-consent"><input type="checkbox" id="f-consent" name="consent" required><span>Даю <a href="/consent" target="_blank" rel="noopener">согласие на обработку персональных данных</a>. Подробнее — в <a href="/privacy" target="_blank" rel="noopener">политике конфиденциальности</a>.</span></label>
       <button class="btn btn-ink" type="submit"><span data-for="client">Обсудить проект</span><span data-for="hr">Отправить вакансию</span></button>
       <p class="form-note" id="form-msg" role="status"></p>
-      <p class="form-note">Нажимая на кнопку, вы соглашаетесь с <a href="/privacy">политикой конфиденциальности</a>.</p>
     </form>
   </div>
 </section>
@@ -3650,6 +3690,13 @@ try {
       c.focus();
       return
     }
+    var agree = document.getElementById('f-consent');
+    if (!agree.checked) {
+      msg.className = 'form-note err';
+      msg.textContent = 'Отметьте согласие на обработку персональных данных, без него я не смогу принять заявку.';
+      agree.focus();
+      return
+    }
     busy(true);
     var d = collect(),
       subj = (d.role === 'HR / компания' ? 'Вакансия' : 'Заявка') + ' с сайта: ' + d.name;
@@ -3668,7 +3715,8 @@ try {
           'Имя': d.name,
           'Контакт': d.contact,
           'Роль': d.role,
-          'Сообщение': d.message
+          'Сообщение': d.message,
+          'Согласие на обработку ПДн': 'дано ' + new Date().toLocaleString('ru-RU') + ', текст: https://yaroslavalekhno.ru/consent'
         })
       })
       .then(function(r) {
