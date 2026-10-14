@@ -12,7 +12,7 @@
 <p align="center">
   <a href="https://yaroslavalekhno.ru"><img src="https://img.shields.io/badge/сайт-yaroslavalekhno.ru-7c3aed?style=for-the-badge" alt="Сайт"></a>
   <a href="https://t.me/yaroslav_alekhno"><img src="https://img.shields.io/badge/Telegram-@yaroslav__alekhno-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
-  <a href="mailto:alekno.yaroslav@gmail.com"><img src="https://img.shields.io/badge/почта-alekno.yaroslav@gmail.com-1f2937?style=for-the-badge&logo=gmail&logoColor=white" alt="Почта"></a>
+  <a href="mailto:yaroslav.alekhno@yaroky.ru"><img src="https://img.shields.io/badge/почта-yaroslav.alekhno@yaroky.ru-1f2937?style=for-the-badge&logo=maildotru&logoColor=white" alt="Почта"></a>
 </p>
 
 ---
@@ -34,7 +34,7 @@
 - **Мобильные приложения** — сценарии, UI-kit, все состояния экранов
 - **UX-аудит** — найду, где пользователи теряются и уходят
 
-Обсудить проект или вакансию: [форма на сайте](https://yaroslavalekhno.ru/#contact), [Telegram](https://t.me/yaroslav_alekhno) или [почта](mailto:alekno.yaroslav@gmail.com).
+Обсудить проект или вакансию: [форма на сайте](https://yaroslavalekhno.ru/#contact), [Telegram](https://t.me/yaroslav_alekhno) или [почта](mailto:yaroslav.alekhno@yaroky.ru).
 
 
 <p align="center"><sub>© Ярослав Алехно</sub></p>
