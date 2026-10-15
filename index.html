@@ -88,7 +88,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/golos-text-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/geologica-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face {
   font-family: 'Golos Text';
@@ -139,6 +139,54 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 @font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/geologica-cyrillic-500-normal.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/geologica-latin-500-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/geologica-cyrillic-600-normal.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/geologica-latin-600-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/geologica-cyrillic-700-normal.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/geologica-latin-700-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+}
+@font-face {
   font-family: 'JetBrains Mono';
   font-style: normal;
   font-weight: 500;
@@ -167,6 +215,7 @@
   --accent: #6b3cf0;
   --accent-soft: rgba(107, 60, 240, .09);
   --ok: #11845b;
+  --display: "Geologica", "Golos Text", system-ui, sans-serif;
   --body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
   /* Шрифтовая шкала: 9 размеров на весь сайт, по три ступени (телефон / от 600px / от 980px).
@@ -261,10 +310,10 @@ a {
 h1,
 h2,
 h3 {
-  font-family: var(--body);
+  font-family: var(--display);
   margin: 0;
   text-wrap: balance;
-  letter-spacing: -.02em;
+  letter-spacing: -.025em;
   line-height: 1.2
 }
 p {
@@ -450,7 +499,7 @@ dd {
   gap: 4px 12px
 }
 .hero-name b {
-  font: 600 var(--t-h4)/1.2 var(--body);
+  font: 600 var(--t-h4)/1.2 var(--display);
   letter-spacing: -.01em;
   color: var(--ink)
 }
@@ -461,8 +510,8 @@ dd {
 h1 {
   margin-bottom: 14px;
   font-size: var(--t-h1);
-  line-height: 1.1;
-  font-weight: 600
+  line-height: 1.08;
+  font-weight: 700
 }
 h1 em {
   font-style: normal;
@@ -518,9 +567,9 @@ h1 em {
   padding-top: 8px
 }
 .clients b {
-  font: 600 var(--t-s)/1 var(--body);
+  font: 600 var(--t-s)/1 var(--display);
   color: var(--ink);
-  
+  letter-spacing: -.01em
 }
 
 /* Витрина на первом экране: единственное место, где стекло лежит на цвете */
@@ -626,7 +675,7 @@ h1 em {
   width: min(58%, 270px)
 }
 .w-metric .big {
-  font: 600 var(--t-h3)/1 var(--body);
+  font: 700 var(--t-h3)/1 var(--display);
   letter-spacing: -.03em;
   font-variant-numeric: tabular-nums
 }
@@ -704,7 +753,7 @@ h1 em {
   display: grid;
   place-items: center;
   color: #fff;
-  font: 600 var(--t-xs)/1 var(--body)
+  font: 600 var(--t-xs)/1 var(--display)
 }
 
 @media (max-width:600px) {
@@ -740,7 +789,7 @@ h1 em {
   object-fit: cover;
   background: linear-gradient(140deg, #6b3cf0, #c9a8ff 70%, #ffd1e8);
   color: #fff;
-  font: 600 var(--t-h3)/1 var(--body);
+  font: 600 var(--t-h3)/1 var(--display);
   display: grid;
   place-items: center;
   pointer-events: none
@@ -851,7 +900,7 @@ h1 em {
   font-size: min(var(--t-h1), calc(var(--vh)*.072))
 }
 
-/* один промежуток между всеми группами текста; подпись «Text · Golos SemiBold» висит под заголовком и входит в него */
+/* один промежуток между всеми группами текста; подпись «Text · Geologica Bold» висит под заголовком и входит в него */
 .hero-copy {
   gap: var(--hero-gap)
 }
@@ -939,7 +988,7 @@ h1 em {
   color: #2c3242
 }
 .sp-foot b {
-  font-weight: 600
+  font-family: var(--display)
 }
 
 .cmp {
@@ -997,7 +1046,7 @@ h1 em {
   border-radius: 11px;
   background: linear-gradient(135deg, var(--accent), #c9a8ff);
   color: #fff;
-  font: 600 var(--t-xs)/1 var(--body);
+  font: 700 var(--t-xs)/1 var(--display);
   letter-spacing: -.02em;
   transition: transform .35s cubic-bezier(.2, .7, .2, 1), border-radius .35s
 }
@@ -1019,7 +1068,7 @@ img.mark {
 .lname {
   display: grid;
   gap: 3px;
-  font: 600 var(--t-s)/1 var(--body);
+  font: 600 var(--t-s)/1 var(--display);
   letter-spacing: -.02em;
   white-space: nowrap
 }
@@ -1218,7 +1267,7 @@ section {
 h2 {
   font-size: var(--t-h2);
   line-height: 1.1;
-  font-weight: 600
+  font-weight: 700
 }
 .sec-head p:not(.kicker) {
   color: var(--ink-2);
@@ -1329,7 +1378,7 @@ h2 {
   white-space: nowrap
 }
 .term b {
-  font: 600 var(--t-h4)/1 var(--body);
+  font: 600 var(--t-h4)/1 var(--display);
   letter-spacing: -.02em;
   color: var(--ink);
   font-variant-numeric: tabular-nums
@@ -1547,7 +1596,7 @@ h2 {
 }
 .chip b {
   display: block;
-  font: 600 var(--t-h4)/1.1 var(--body);
+  font: 700 var(--t-h4)/1.1 var(--display);
   letter-spacing: -.02em;
   font-variant-numeric: tabular-nums
 }
@@ -1767,12 +1816,12 @@ h2 {
   border-radius: 50%;
   background: var(--accent);
   color: #fff;
-  font: 600 var(--t-mono)/1 var(--body)
+  font: 700 var(--t-mono)/1 var(--display)
 }
 .ai-head h3 {
   font-size: var(--t-h3);
-  font-weight: 600;
-  line-height: 1.15
+  font-weight: 700;
+  line-height: 1.1
 }
 .ai-head p:not(.ai-pin) {
   color: var(--ink-2);
@@ -1893,7 +1942,7 @@ h2 {
   min-width: 0
 }
 .job-body>b {
-  font: 600 var(--t-h4)/1.25 var(--body);
+  font: 600 var(--t-h4)/1.25 var(--display);
   letter-spacing: -.01em
 }
 .job-co {
@@ -1989,7 +2038,7 @@ h2 {
   align-content: start
 }
 .college>b {
-  font: 600 var(--t-h4)/1.25 var(--body);
+  font: 600 var(--t-h4)/1.25 var(--display);
   letter-spacing: -.01em;
   max-width: 24ch
 }
@@ -2124,9 +2173,6 @@ h2 {
   overflow-wrap: anywhere;
   min-width: 0
 }
-.ch div {
-  flex-wrap: wrap
-}
 .ch .em {
   overflow-wrap: normal
 }
@@ -2146,15 +2192,33 @@ h2 {
   text-decoration: underline;
   text-underline-offset: 2px
 }
+/* копирование почты: иконка на месте стрелки, зона нажатия 44px не раздувает строку */
 .copy {
-  background: rgba(255, 255, 255, .12);
-  color: #fff;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  margin: -13px;
+  padding: 0;
   border: 0;
   border-radius: 999px;
-  padding: 9px 14px;
-  font: 600 var(--t-xs)/1 var(--body);
-  cursor: pointer;
-  white-space: nowrap
+  background: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer
+}
+@media (hover:hover) {
+  .copy:hover {
+    background: rgba(255, 255, 255, .12)
+  }
+}
+.copy .i-done,
+.copy.done .i-copy {
+  display: none
+}
+.copy.done .i-done {
+  display: block
 }
 form {
   background: #fff;
@@ -2866,10 +2930,6 @@ main:focus {
     min-height: 44px;
     min-width: 44px
   }
-  .copy {
-    min-height: 44px;
-    padding-inline: 16px
-  }
   .seg label {
     min-height: 44px;
     display: grid;
@@ -2954,7 +3014,7 @@ main:focus {
   margin: 0
 }
 .exp-sum .big {
-  font: 600 var(--t-h2)/1 var(--body);
+  font: 700 var(--t-h2)/1 var(--display);
   letter-spacing: -.03em;
   color: var(--ink)
 }
@@ -3086,7 +3146,7 @@ try {
     <p class="status"><span class="dot" aria-hidden="true"></span>Беру проекты и рассматриваю вакансии</p>
     <div class="hero-head">
     <p class="hero-name"><b>Ярослав Алехно</b><span>UX/UI дизайнер цифровых продуктов</span></p>
-    <h1>Проектирую сайты, которые <span class="sel-h" data-spec="Text · Golos SemiBold"><em>приводят к заявке</em></span></h1>
+    <h1>Проектирую сайты, которые <span class="sel-h" data-spec="Text · Geologica Bold"><em>приводят к заявке</em></span></h1>
     </div>
     <p class="lead">Разбираюсь, как устроен продукт, убираю лишние шаги на пути к заявке и проектирую интерфейс, в котором легко найти нужное.</p>
     <div class="cta">
@@ -3477,7 +3537,7 @@ try {
       <p class="sub" data-for="hr">Пришлите вакансию, отвечу в течение дня. Резюме можно открыть сразу.</p>
       <div class="ch">
         <a href="https://t.me/yaroslav_alekhno" target="_blank" rel="noopener"><span><small>Telegram</small>@yaroslav_alekhno</span><span class="arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
-        <div><span><small>Почта</small><a href="mailto:yaroslav.alekhno@yaroky.ru" class="em" style="padding:0;background:none;display:inline">yaroslav.alekhno<wbr>@yaroky.ru</a></span><button class="copy" type="button" id="copy">Скопировать</button>
+        <div><span><small>Почта</small><a href="mailto:yaroslav.alekhno@yaroky.ru" class="em" style="padding:0;background:none;display:inline">yaroslav.alekhno<wbr>@yaroky.ru</a></span><button class="copy" type="button" id="copy" aria-label="Скопировать почту" title="Скопировать почту"><svg class="ic i-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg><svg class="ic i-done" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
         </div>
         <a href="https://drive.google.com/file/d/1qphbUDxZQ8-MqYrdRZzCcpZbJCbvMqje/view?usp=sharing" target="_blank" rel="noopener"><span><small>Для HR</small>Резюме, PDF</span><span class="arrow" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
       </div>
@@ -3605,15 +3665,19 @@ try {
   var cp = document.getElementById('copy'),
     cpT;
   if (cp) cp.addEventListener('click', function() {
-    var put = function(t) {
-      cp.textContent = t;
+    var put = function(t, done) {
+      cp.classList.toggle('done', !!done);
+      cp.setAttribute('aria-label', t);
+      cp.title = t;
       clearTimeout(cpT);
       cpT = setTimeout(function() {
-        cp.textContent = 'Скопировать'
+        cp.classList.remove('done');
+        cp.setAttribute('aria-label', 'Скопировать почту');
+        cp.title = 'Скопировать почту'
       }, 2500)
     };
     var ok = function() {
-        put('Скопировано')
+        put('Почта скопирована', true)
       },
       no = function() {
         var a = document.querySelector('.ch .em');

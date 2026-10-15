@@ -90,7 +90,7 @@
 </script>
 <meta name="description" content="Мобильное приложение для водителей и пассажиров: UI-kit, сценарии двух ролей, пограничные состояния, светлая и тёмная темы.">
 <link rel="preload" href="/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/golos-text-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/geologica-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face {
   font-family: 'Golos Text';
@@ -141,6 +141,54 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 @font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/geologica-cyrillic-500-normal.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/geologica-latin-500-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/geologica-cyrillic-600-normal.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/geologica-latin-600-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/geologica-cyrillic-700-normal.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/geologica-latin-700-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+}
+@font-face {
   font-family: 'JetBrains Mono';
   font-style: normal;
   font-weight: 500;
@@ -169,6 +217,7 @@
   --accent: #6b3cf0;
   --accent-soft: rgba(107, 60, 240, .09);
   --ok: #11845b;
+  --display: "Geologica", "Golos Text", system-ui, sans-serif;
   --body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
   /* Шрифтовая шкала: 9 размеров на весь сайт, по три ступени (телефон / от 600px / от 980px).
@@ -263,10 +312,10 @@ a {
 h1,
 h2,
 h3 {
-  font-family: var(--body);
+  font-family: var(--display);
   margin: 0;
   text-wrap: balance;
-  letter-spacing: -.02em;
+  letter-spacing: -.025em;
   line-height: 1.2
 }
 p {
@@ -452,7 +501,7 @@ dd {
   gap: 4px 12px
 }
 .hero-name b {
-  font: 600 var(--t-h4)/1.2 var(--body);
+  font: 600 var(--t-h4)/1.2 var(--display);
   letter-spacing: -.01em;
   color: var(--ink)
 }
@@ -463,8 +512,8 @@ dd {
 h1 {
   margin-bottom: 14px;
   font-size: var(--t-h1);
-  line-height: 1.1;
-  font-weight: 600
+  line-height: 1.08;
+  font-weight: 700
 }
 h1 em {
   font-style: normal;
@@ -520,9 +569,9 @@ h1 em {
   padding-top: 8px
 }
 .clients b {
-  font: 600 var(--t-s)/1 var(--body);
+  font: 600 var(--t-s)/1 var(--display);
   color: var(--ink);
-  
+  letter-spacing: -.01em
 }
 
 /* Витрина на первом экране: единственное место, где стекло лежит на цвете */
@@ -628,7 +677,7 @@ h1 em {
   width: min(58%, 270px)
 }
 .w-metric .big {
-  font: 600 var(--t-h3)/1 var(--body);
+  font: 700 var(--t-h3)/1 var(--display);
   letter-spacing: -.03em;
   font-variant-numeric: tabular-nums
 }
@@ -706,7 +755,7 @@ h1 em {
   display: grid;
   place-items: center;
   color: #fff;
-  font: 600 var(--t-xs)/1 var(--body)
+  font: 600 var(--t-xs)/1 var(--display)
 }
 
 @media (max-width:600px) {
@@ -742,7 +791,7 @@ h1 em {
   object-fit: cover;
   background: linear-gradient(140deg, #6b3cf0, #c9a8ff 70%, #ffd1e8);
   color: #fff;
-  font: 600 var(--t-h3)/1 var(--body);
+  font: 600 var(--t-h3)/1 var(--display);
   display: grid;
   place-items: center;
   pointer-events: none
@@ -853,7 +902,7 @@ h1 em {
   font-size: min(var(--t-h1), calc(var(--vh)*.072))
 }
 
-/* один промежуток между всеми группами текста; подпись «Text · Golos SemiBold» висит под заголовком и входит в него */
+/* один промежуток между всеми группами текста; подпись «Text · Geologica Bold» висит под заголовком и входит в него */
 .hero-copy {
   gap: var(--hero-gap)
 }
@@ -941,7 +990,7 @@ h1 em {
   color: #2c3242
 }
 .sp-foot b {
-  font-weight: 600
+  font-family: var(--display)
 }
 
 .cmp {
@@ -999,7 +1048,7 @@ h1 em {
   border-radius: 11px;
   background: linear-gradient(135deg, var(--accent), #c9a8ff);
   color: #fff;
-  font: 600 var(--t-xs)/1 var(--body);
+  font: 700 var(--t-xs)/1 var(--display);
   letter-spacing: -.02em;
   transition: transform .35s cubic-bezier(.2, .7, .2, 1), border-radius .35s
 }
@@ -1021,7 +1070,7 @@ img.mark {
 .lname {
   display: grid;
   gap: 3px;
-  font: 600 var(--t-s)/1 var(--body);
+  font: 600 var(--t-s)/1 var(--display);
   letter-spacing: -.02em;
   white-space: nowrap
 }
@@ -1220,7 +1269,7 @@ section {
 h2 {
   font-size: var(--t-h2);
   line-height: 1.1;
-  font-weight: 600
+  font-weight: 700
 }
 .sec-head p:not(.kicker) {
   color: var(--ink-2);
@@ -1331,7 +1380,7 @@ h2 {
   white-space: nowrap
 }
 .term b {
-  font: 600 var(--t-h4)/1 var(--body);
+  font: 600 var(--t-h4)/1 var(--display);
   letter-spacing: -.02em;
   color: var(--ink);
   font-variant-numeric: tabular-nums
@@ -1549,7 +1598,7 @@ h2 {
 }
 .chip b {
   display: block;
-  font: 600 var(--t-h4)/1.1 var(--body);
+  font: 700 var(--t-h4)/1.1 var(--display);
   letter-spacing: -.02em;
   font-variant-numeric: tabular-nums
 }
@@ -1769,12 +1818,12 @@ h2 {
   border-radius: 50%;
   background: var(--accent);
   color: #fff;
-  font: 600 var(--t-mono)/1 var(--body)
+  font: 700 var(--t-mono)/1 var(--display)
 }
 .ai-head h3 {
   font-size: var(--t-h3);
-  font-weight: 600;
-  line-height: 1.15
+  font-weight: 700;
+  line-height: 1.1
 }
 .ai-head p:not(.ai-pin) {
   color: var(--ink-2);
@@ -1895,7 +1944,7 @@ h2 {
   min-width: 0
 }
 .job-body>b {
-  font: 600 var(--t-h4)/1.25 var(--body);
+  font: 600 var(--t-h4)/1.25 var(--display);
   letter-spacing: -.01em
 }
 .job-co {
@@ -1991,7 +2040,7 @@ h2 {
   align-content: start
 }
 .college>b {
-  font: 600 var(--t-h4)/1.25 var(--body);
+  font: 600 var(--t-h4)/1.25 var(--display);
   letter-spacing: -.01em;
   max-width: 24ch
 }
@@ -2904,7 +2953,7 @@ main:focus {
   margin: 0
 }
 .exp-sum .big {
-  font: 600 var(--t-h2)/1 var(--body);
+  font: 700 var(--t-h2)/1 var(--display);
   letter-spacing: -.03em;
   color: var(--ink)
 }
@@ -3294,7 +3343,7 @@ figcaption::before {
   align-content: start
 }
 .num b {
-  font: 600 var(--t-h3)/1 var(--body);
+  font: 700 var(--t-h3)/1 var(--display);
   letter-spacing: -.03em;
   font-variant-numeric: tabular-nums
 }
@@ -3354,7 +3403,7 @@ figcaption::before {
   margin-bottom: 10px
 }
 .next strong {
-  font: 600 var(--t-h3)/1.15 var(--body);
+  font: 600 var(--t-h3)/1.15 var(--display);
   letter-spacing: -.02em
 }
 .next .arrow {
@@ -3442,7 +3491,7 @@ figcaption::before {
 }
 
 .dec b {
-  font: 600 var(--t-h4)/1.25 var(--body);
+  font: 600 var(--t-h4)/1.25 var(--display);
   letter-spacing: -.01em
 }
 .dec p {
