@@ -90,7 +90,7 @@
 </script>
 <meta name="description" content="Спроектировал структуру и интерфейс сайта производителя криогенного оборудования. Конверсия в заявки выросла с 5% до 6,2%, отказы снизились с 65% до 53%.">
 <link rel="preload" href="/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/geologica-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/geologica-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face {
   font-family: 'Golos Text';
@@ -109,54 +109,6 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 @font-face {
-  font-family: 'Golos Text';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/golos-text-cyrillic-500-normal.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
-}
-@font-face {
-  font-family: 'Golos Text';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/golos-text-latin-500-normal.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
-}
-@font-face {
-  font-family: 'Golos Text';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(/fonts/golos-text-cyrillic-600-normal.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
-}
-@font-face {
-  font-family: 'Golos Text';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(/fonts/golos-text-latin-600-normal.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
-}
-@font-face {
-  font-family: 'Geologica';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/geologica-cyrillic-500-normal.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
-}
-@font-face {
-  font-family: 'Geologica';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/geologica-latin-500-normal.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
-}
-@font-face {
   font-family: 'Geologica';
   font-style: normal;
   font-weight: 600;
@@ -170,22 +122,6 @@
   font-weight: 600;
   font-display: swap;
   src: url(/fonts/geologica-latin-600-normal.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
-}
-@font-face {
-  font-family: 'Geologica';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/fonts/geologica-cyrillic-700-normal.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
-}
-@font-face {
-  font-family: 'Geologica';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/fonts/geologica-latin-700-normal.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 @font-face {
@@ -237,6 +173,9 @@
   --ls-display: -.02em;
   --lh-body: 1.5;
   --lh-mono: 1.4;
+  --fw-display: 600;
+  --fw-body: 400;
+  --ic: 16px;
   --r-xl: 36px;
   --r-l: 26px;
   --r-m: 18px;
@@ -275,6 +214,7 @@
     --t-h3: 28px;
     --t-h4: 22px;
     --t-lead: 20px;
+    --ic: 18px;
     --sec: 160px;
     --head: 48px;
     --grid: 24px;
@@ -297,7 +237,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 400 var(--t-p)/var(--lh-body) var(--body);
+  font: var(--fw-body) var(--t-p)/var(--lh-body) var(--body);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden
 }
@@ -325,6 +265,10 @@ h3 {
 }
 p {
   margin: 0
+}
+b,
+strong {
+  font-weight: inherit
 }
 p,
 li,
@@ -412,7 +356,7 @@ dd {
   min-height: 46px;
   padding: 0 22px;
   border-radius: 999px;
-  font: 600 var(--t-s)/var(--lh-body) var(--body);
+  font: var(--fw-body) var(--t-s)/var(--lh-body) var(--body);
   text-decoration: none;
   border: 0;
   cursor: pointer;
@@ -446,7 +390,6 @@ dd {
   }
 }
 .arrow {
-  font-size: 18px;
   line-height: 1
 }
 
@@ -474,7 +417,7 @@ dd {
   align-items: center;
   gap: 10px;
   font-size: var(--t-xs);
-  font-weight: 500;
+  font-weight: var(--fw-body);
   color: var(--ink-2);
   background: var(--surface);
   padding: 8px 14px 8px 12px;
@@ -506,7 +449,7 @@ dd {
   gap: 4px 12px
 }
 .hero-name b {
-  font: 600 var(--t-h4)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h4)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display);
   color: var(--ink)
 }
@@ -518,7 +461,7 @@ h1 {
   margin-bottom: 14px;
   font-size: var(--t-h1);
   
-  font-weight: 700
+  font-weight: var(--fw-display)
 }
 h1 em {
   font-style: normal;
@@ -574,7 +517,7 @@ h1 em {
   padding-top: 8px
 }
 .clients b {
-  font: 600 var(--t-s)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-s)/var(--lh-display) var(--display);
   color: var(--ink);
   letter-spacing: var(--ls-display)
 }
@@ -649,7 +592,7 @@ h1 em {
   height: 18px
 }
 .cursor span {
-  font: 600 var(--t-xs)/var(--lh-body) var(--body);
+  font: var(--fw-body) var(--t-xs)/var(--lh-body) var(--body);
   color: #fff;
   background: #e5484d;
   padding: 5px 8px;
@@ -672,7 +615,7 @@ h1 em {
 .w small {
   display: block;
   font-size: var(--t-xs);
-  font-weight: 500;
+  font-weight: var(--fw-body);
   color: #2c3242;
   margin-bottom: 6px
 }
@@ -682,13 +625,13 @@ h1 em {
   width: min(58%, 270px)
 }
 .w-metric .big {
-  font: 700 var(--t-h3)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h3)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display);
   font-variant-numeric: tabular-nums
 }
 .w-metric .big span {
   display: block;
-  font: 500 var(--t-s)/var(--lh-body) var(--body);
+  font: var(--fw-body) var(--t-s)/var(--lh-body) var(--body);
   letter-spacing: 0;
   color: #2c3242;
   margin-top: 4px
@@ -722,7 +665,7 @@ h1 em {
   align-items: center;
   gap: 10px;
   font-size: var(--t-xs);
-  font-weight: 500;
+  font-weight: var(--fw-body);
   background: rgba(255, 255, 255, .6);
   border-radius: 12px;
   padding: 8px 10px
@@ -749,7 +692,7 @@ h1 em {
   border-radius: 999px;
   padding: 10px 18px 10px 10px;
   font-size: var(--t-xs);
-  font-weight: 600
+  font-weight: var(--fw-body)
 }
 .w-avail .av {
   width: 38px;
@@ -760,7 +703,7 @@ h1 em {
   display: grid;
   place-items: center;
   color: #fff;
-  font: 600 var(--t-xs)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-xs)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display)
 }
 
@@ -797,7 +740,7 @@ h1 em {
   object-fit: cover;
   background: linear-gradient(140deg, #6b3cf0, #c9a8ff 70%, #ffd1e8);
   color: #fff;
-  font: 600 var(--t-h3)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h3)/var(--lh-display) var(--display);
   display: grid;
   place-items: center;
   pointer-events: none;
@@ -989,7 +932,7 @@ h1 em {
   border-radius: 10px;
   background: rgba(255, 255, 255, .7);
   font-size: var(--t-xs);
-  font-weight: 600
+  font-weight: var(--fw-body)
 }
 .sp-foot {
   margin-top: 10px;
@@ -998,6 +941,7 @@ h1 em {
 }
 .sp-foot b {
   font-family: var(--display);
+  font-weight: var(--fw-display);
   line-height: var(--lh-display);
   letter-spacing: var(--ls-display)
 }
@@ -1017,7 +961,7 @@ h1 em {
   padding: 10px 12px;
   border-radius: 999px;
   font-size: var(--t-xs);
-  font-weight: 600
+  font-weight: var(--fw-body)
 }
 .cmp-b.ink {
   background: var(--ink);
@@ -1057,7 +1001,7 @@ h1 em {
   border-radius: 11px;
   background: linear-gradient(135deg, var(--accent), #c9a8ff);
   color: #fff;
-  font: 700 var(--t-xs)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-xs)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display);
   transition: transform .35s cubic-bezier(.2, .7, .2, 1), border-radius .35s
 }
@@ -1079,7 +1023,7 @@ img.mark {
 .lname {
   display: grid;
   gap: 3px;
-  font: 600 var(--t-s)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-s)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display);
   white-space: nowrap
 }
@@ -1268,8 +1212,8 @@ section {
   content: "#";
   display: grid;
   place-items: center;
-  width: 20px;
-  height: 20px;
+  width: var(--ic);
+  height: var(--ic);
   border-radius: 6px;
   background: var(--accent);
   color: #fff;
@@ -1278,7 +1222,7 @@ section {
 h2 {
   font-size: var(--t-h2);
   
-  font-weight: 700
+  font-weight: var(--fw-display)
 }
 .sec-head p:not(.kicker) {
   color: var(--ink-2);
@@ -1307,7 +1251,7 @@ h2 {
 }
 .aud h3 {
   font-size: var(--t-h4);
-  font-weight: 600
+  font-weight: var(--fw-display)
 }
 .aud ul {
   list-style: none;
@@ -1363,7 +1307,7 @@ h2 {
 .svc h3 {
   grid-area: t;
   font-size: var(--t-h3);
-  font-weight: 600;
+  font-weight: var(--fw-display);
   
 }
 .svc p:not(.for) {
@@ -1389,7 +1333,7 @@ h2 {
   white-space: nowrap
 }
 .term b {
-  font: 600 var(--t-h4)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h4)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display);
   color: var(--ink);
   font-variant-numeric: tabular-nums
@@ -1570,7 +1514,7 @@ h2 {
   }
 }
 .shot .ph {
-  font: 600 var(--t-xs)/var(--lh-body) var(--body);
+  font: var(--fw-body) var(--t-xs)/var(--lh-body) var(--body);
   color: rgba(255, 255, 255, .85);
   border: 1.5px dashed rgba(255, 255, 255, .6);
   border-radius: 16px;
@@ -1602,12 +1546,12 @@ h2 {
   border-radius: 14px;
   padding: 10px 14px;
   font-size: var(--t-xs);
-  font-weight: 500;
+  font-weight: var(--fw-body);
   color: var(--ink)
 }
 .chip b {
   display: block;
-  font: 700 var(--t-h4)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h4)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display);
   font-variant-numeric: tabular-nums
 }
@@ -1624,7 +1568,7 @@ h2 {
   flex-wrap: wrap;
   gap: 6px 0;
   font-size: var(--t-xs);
-  font-weight: 500;
+  font-weight: var(--fw-body);
   color: var(--ink-2);
   margin-inline-start: -21px;
   clip-path: inset(0 0 0 21px)
@@ -1638,7 +1582,7 @@ h2 {
 }
 .case h3 {
   font-size: var(--t-h4);
-  font-weight: 600;
+  font-weight: var(--fw-display);
   
 }
 .case p {
@@ -1648,7 +1592,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-weight: 600;
+  font-weight: var(--fw-body);
   font-size: var(--t-s);
   margin-top: 4px
 }
@@ -1734,7 +1678,7 @@ h2 {
 .step h3 {
   grid-area: t;
   font-size: var(--t-h4);
-  font-weight: 600;
+  font-weight: var(--fw-display);
   align-self: end
 }
 .step p {
@@ -1745,7 +1689,7 @@ h2 {
 .step .you {
   grid-area: y;
   font-size: var(--t-xs);
-  font-weight: 500;
+  font-weight: var(--fw-body);
   color: var(--ink);
   background: var(--paper);
   padding: 7px 11px;
@@ -1827,12 +1771,12 @@ h2 {
   border-radius: 50%;
   background: var(--accent);
   color: #fff;
-  font: 700 var(--t-mono)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-mono)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display)
 }
 .ai-head h3 {
   font-size: var(--t-h3);
-  font-weight: 700;
+  font-weight: var(--fw-display);
   
 }
 .ai-head p:not(.ai-pin) {
@@ -1891,7 +1835,7 @@ h2 {
   content: "✓";
   flex: none;
   color: var(--accent);
-  font-weight: 600;
+  font-weight: var(--fw-body);
   font-size: 14px;
   margin-top: 1px
 }
@@ -1942,7 +1886,7 @@ h2 {
 .job-when time {
   font-size: var(--t-xs);
   color: var(--ink);
-  font-weight: 500;
+  font-weight: var(--fw-body);
   font-variant-numeric: tabular-nums
 }
 .job-when span {
@@ -1955,7 +1899,7 @@ h2 {
   min-width: 0
 }
 .job-body>b {
-  font: 600 var(--t-h4)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h4)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display)
 }
 .job-co {
@@ -1992,7 +1936,7 @@ h2 {
 }
 .tags span {
   font-size: var(--t-xs);
-  font-weight: 500;
+  font-weight: var(--fw-body);
   padding: 7px 11px;
   border-radius: 999px;
   background: var(--paper);
@@ -2028,7 +1972,7 @@ h2 {
   align-content: start
 }
 .sk b {
-  font-weight: 600
+  font-weight: var(--fw-body)
 }
 .sk p {
   font-size: var(--t-s);
@@ -2051,7 +1995,7 @@ h2 {
   align-content: start
 }
 .college>b {
-  font: 600 var(--t-h4)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h4)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display);
   max-width: 24ch
 }
@@ -2076,7 +2020,7 @@ h2 {
   color: var(--ink-2)
 }
 .edu-add b {
-  font-weight: 600
+  font-weight: var(--fw-body)
 }
 .honor {
   justify-self: start;
@@ -2086,7 +2030,7 @@ h2 {
   gap: 8px;
   margin-bottom: 6px;
   font-size: var(--t-xs);
-  font-weight: 600;
+  font-weight: var(--fw-body);
   color: #a1121c;
   background: #ffe9ea;
   padding: 7px 12px 7px 9px;
@@ -2119,7 +2063,7 @@ h2 {
   padding-bottom: 0
 }
 .courses b {
-  font-weight: 600
+  font-weight: var(--fw-body)
 }
 .courses span {
   font-size: var(--t-s);
@@ -2214,7 +2158,7 @@ h2 {
   border: 0;
   border-radius: 999px;
   padding: 9px 14px;
-  font: 600 var(--t-xs)/var(--lh-body) var(--body);
+  font: var(--fw-body) var(--t-xs)/var(--lh-body) var(--body);
   cursor: pointer;
   white-space: nowrap
 }
@@ -2252,7 +2196,7 @@ form {
   text-align: center;
   padding: 10px;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: var(--fw-body);
   font-size: var(--t-xs);
   cursor: pointer;
   color: var(--ink-2)
@@ -2270,10 +2214,10 @@ form {
   display: grid;
   gap: 6px;
   font-size: var(--t-xs);
-  font-weight: 500
+  font-weight: var(--fw-body)
 }
 .field small {
-  font-weight: 400;
+  font-weight: var(--fw-body);
   color: var(--ink-2)
 }
 .field input::placeholder,
@@ -2320,11 +2264,11 @@ form .btn {
 }
 .form-note.ok {
   color: var(--ok);
-  font-weight: 600
+  font-weight: var(--fw-body)
 }
 .form-note.err {
   color: #c0362c;
-  font-weight: 600
+  font-weight: var(--fw-body)
 }
 [data-role="client"] [data-for="hr"],
 [data-role="hr"] [data-for="client"] {
@@ -2340,7 +2284,7 @@ form .btn {
 }
 .opts legend {
   font-size: var(--t-xs);
-  font-weight: 500;
+  font-weight: var(--fw-body);
   padding: 0;
   margin-bottom: 8px
 }
@@ -2360,7 +2304,7 @@ form .btn {
   border-radius: 999px;
   background: var(--paper);
   font-size: var(--t-xs);
-  font-weight: 500;
+  font-weight: var(--fw-body);
   cursor: pointer;
   transition: background .2s, color .2s
 }
@@ -2426,8 +2370,8 @@ footer a {
   }
 }
 .theme svg {
-  width: 20px;
-  height: 20px;
+  width: var(--ic);
+  height: var(--ic);
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
@@ -2479,8 +2423,8 @@ footer a {
   display: none
 }
 .menu summary svg {
-  width: 20px;
-  height: 20px;
+  width: var(--ic);
+  height: var(--ic);
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
@@ -2745,7 +2689,7 @@ footer a {
   color: var(--paper);
   padding: 15px 20px;
   border-radius: 999px;
-  font: 600 var(--t-s)/var(--lh-body) var(--body);
+  font: var(--fw-body) var(--t-s)/var(--lh-body) var(--body);
   text-decoration: none;
   transition: top .2s
 }
@@ -2758,8 +2702,8 @@ main:focus {
 
 /* иконки SVG вместо символов */
 .ic {
-  width: 1em;
-  height: 1em;
+  width: var(--ic);
+  height: var(--ic);
   flex: none;
   fill: none;
   stroke: currentColor;
@@ -2772,12 +2716,14 @@ main:focus {
   display: inline-flex
 }
 .cmp-b .ic {
-  margin-left: 6px
+  margin-left: 6px;
+  width: 1em;
+  height: 1em
 }
 .svc::after {
   content: "";
-  width: 20px;
-  height: 20px;
+  width: var(--ic);
+  height: var(--ic);
   background: var(--accent);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat
@@ -2785,8 +2731,8 @@ main:focus {
 .ai-fast li::before,
 .ai-me li::before {
   content: "";
-  width: 16px;
-  height: 16px;
+  width: var(--ic);
+  height: var(--ic);
   margin-top: 4px;
   background: currentColor
 }
@@ -2853,7 +2799,7 @@ main:focus {
     margin-top: -6px;
     background: none;
     border: 0;
-    font: 600 var(--t-s)/var(--lh-body) var(--body);
+    font: var(--fw-body) var(--t-s)/var(--lh-body) var(--body);
     color: var(--accent);
     cursor: pointer;
     width: fit-content
@@ -2964,13 +2910,13 @@ main:focus {
   margin: 0
 }
 .exp-sum .big {
-  font: 700 var(--t-h2)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h2)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display);
   color: var(--ink)
 }
 .exp-sum .big small {
   display: block;
-  font: 500 var(--t-s)/var(--lh-body) var(--body);
+  font: var(--fw-body) var(--t-s)/var(--lh-body) var(--body);
   color: var(--ink-2);
   letter-spacing: 0;
   margin-top: 8px
@@ -3113,7 +3059,7 @@ main:focus {
 }
 .inspector header b {
   color: var(--ink);
-  font-weight: 500
+  font-weight: inherit
 }
 .inspector dl {
   margin: 0;
@@ -3246,7 +3192,7 @@ main:focus {
 }
 .block h3 {
   font-size: var(--t-h4);
-  font-weight: 600;
+  font-weight: var(--fw-display);
   margin-top: 10px
 }
 .bullets {
@@ -3301,7 +3247,7 @@ main:focus {
 }
 .flow-list b {
   color: var(--ink);
-  font-weight: 600
+  font-weight: var(--fw-body)
 }
 @media (min-width:760px) {
   .block>ol.flow-list {
@@ -3354,7 +3300,7 @@ figcaption::before {
   align-content: start
 }
 .num b {
-  font: 700 var(--t-h3)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h3)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display);
   font-variant-numeric: tabular-nums
 }
@@ -3414,11 +3360,10 @@ figcaption::before {
   margin-bottom: 10px
 }
 .next strong {
-  font: 600 var(--t-h3)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h3)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display)
 }
 .next .arrow {
-  font-size: 28px
 }
 .band {
   background: var(--ink);
@@ -3502,7 +3447,7 @@ figcaption::before {
 }
 
 .dec b {
-  font: 600 var(--t-h4)/var(--lh-display) var(--display);
+  font: var(--fw-display) var(--t-h4)/var(--lh-display) var(--display);
   letter-spacing: var(--ls-display)
 }
 .dec p {
@@ -3635,7 +3580,8 @@ figcaption::before {
   border: 0;
   background: rgba(255, 255, 255, .14);
   color: #fff;
-  font: 400 26px/1 var(--body);
+  display: grid;
+  place-items: center;
   cursor: pointer
 }
 @media (hover:hover) {
@@ -4000,7 +3946,7 @@ try {
   lb.setAttribute('role', 'dialog');
   lb.setAttribute('aria-modal', 'true');
   lb.setAttribute('aria-label', 'Просмотр изображения');
-  lb.innerHTML = '<button class="lb-x" type="button" aria-label="Закрыть">×</button><div class="lb-in"><button class="lb-z" type="button" aria-pressed="false" aria-label="Показать в натуральную величину"><img alt=""></button></div><p class="lb-cap"></p>';
+  lb.innerHTML = '<button class="lb-x" type="button" aria-label="Закрыть"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button><div class="lb-in"><button class="lb-z" type="button" aria-pressed="false" aria-label="Показать в натуральную величину"><img alt=""></button></div><p class="lb-cap"></p>';
   host.appendChild(lb);
   var im = lb.querySelector('img'),
     zb = lb.querySelector('.lb-z'),
