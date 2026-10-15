@@ -3780,10 +3780,20 @@ try {
       msg.className = 'form-note err';
       msg.textContent = bad.length === 1 && bad[0].classList.contains('agree') ? 'Отметьте согласие на обработку персональных данных, без него я не смогу принять заявку.' : 'Заполните поля, отмеченные красным.';
       var first = bad[0].querySelector('[aria-invalid="true"]') || bad[0].querySelector('input,textarea');
-      bad[0].scrollIntoView({
-        block: 'center',
-        behavior: 'smooth'
-      });
+      /* прокручиваем, только если первое пустое поле не видно; форма, которая помещается на экран, встаёт целиком под меню */
+      var navH = 96,
+        r = bad[0].getBoundingClientRect(),
+        f = form.getBoundingClientRect();
+      if (r.top < navH || r.bottom > innerHeight) {
+        if (f.height <= innerHeight - navH - 16) scrollTo({
+          top: scrollY + f.top - navH,
+          behavior: 'smooth'
+        });
+        else bad[0].scrollIntoView({
+          block: 'nearest',
+          behavior: 'smooth'
+        })
+      }
       if (first) first.focus({
         preventScroll: true
       });
