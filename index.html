@@ -88,7 +88,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/geologica-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/golos-text-cyrillic-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face {
   font-family: 'Golos Text';
@@ -139,54 +139,6 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 @font-face {
-  font-family: 'Geologica';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/geologica-cyrillic-500-normal.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
-}
-@font-face {
-  font-family: 'Geologica';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/fonts/geologica-latin-500-normal.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
-}
-@font-face {
-  font-family: 'Geologica';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(/fonts/geologica-cyrillic-600-normal.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
-}
-@font-face {
-  font-family: 'Geologica';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(/fonts/geologica-latin-600-normal.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
-}
-@font-face {
-  font-family: 'Geologica';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/fonts/geologica-cyrillic-700-normal.woff2) format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
-}
-@font-face {
-  font-family: 'Geologica';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/fonts/geologica-latin-700-normal.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
-}
-@font-face {
   font-family: 'JetBrains Mono';
   font-style: normal;
   font-weight: 500;
@@ -215,9 +167,20 @@
   --accent: #6b3cf0;
   --accent-soft: rgba(107, 60, 240, .09);
   --ok: #11845b;
-  --display: "Geologica", "Golos Text", system-ui, sans-serif;
   --body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  /* Шрифтовая шкала: 9 размеров на весь сайт, по три ступени (телефон / от 600px / от 980px).
+     h1–h4 заголовки, lead вводный абзац, p основной текст, s мелкий текст и кнопки,
+     xs подписи и метки, mono технические подписи. */
+  --t-h1: 34px;
+  --t-h2: 28px;
+  --t-h3: 22px;
+  --t-h4: 18px;
+  --t-lead: 17px;
+  --t-p: 16px;
+  --t-s: 15px;
+  --t-xs: 13px;
+  --t-mono: 12px;
   --r-xl: 36px;
   --r-l: 26px;
   --r-m: 18px;
@@ -239,12 +202,23 @@
 }
 @media (min-width:600px) {
   :root {
+    --t-h1: 44px;
+    --t-h2: 36px;
+    --t-h3: 24px;
+    --t-h4: 20px;
+    --t-lead: 18px;
+    --t-p: 17px;
     --sec: 112px;
     --head: 40px
   }
 }
 @media (min-width:980px) {
   :root {
+    --t-h1: 60px;
+    --t-h2: 48px;
+    --t-h3: 28px;
+    --t-h4: 22px;
+    --t-lead: 20px;
     --sec: 160px;
     --head: 48px;
     --grid: 24px;
@@ -267,7 +241,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 400 17px/1.6 var(--body);
+  font: 400 var(--t-p)/1.6 var(--body);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden
 }
@@ -287,10 +261,10 @@ a {
 h1,
 h2,
 h3 {
-  font-family: var(--display);
+  font-family: var(--body);
   margin: 0;
   text-wrap: balance;
-  letter-spacing: -.025em;
+  letter-spacing: -.02em;
   line-height: 1.2
 }
 p {
@@ -353,7 +327,7 @@ dd {
   padding: 9px 14px;
   border-radius: 999px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: var(--t-s);
   color: var(--ink-2)
 }
 @media (hover:hover) {
@@ -382,7 +356,7 @@ dd {
   min-height: 46px;
   padding: 0 22px;
   border-radius: 999px;
-  font: 600 15px/1 var(--body);
+  font: 600 var(--t-s)/1 var(--body);
   text-decoration: none;
   border: 0;
   cursor: pointer;
@@ -443,7 +417,7 @@ dd {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: var(--t-xs);
   font-weight: 500;
   color: var(--ink-2);
   background: var(--surface);
@@ -476,19 +450,19 @@ dd {
   gap: 4px 12px
 }
 .hero-name b {
-  font: 600 clamp(20px, 2vw, 24px)/1.2 var(--display);
+  font: 600 var(--t-h4)/1.2 var(--body);
   letter-spacing: -.01em;
   color: var(--ink)
 }
 .hero-name span {
-  font: 500 12px/1.4 var(--mono);
+  font: 500 var(--t-mono)/1.4 var(--mono);
   color: var(--accent)
 }
 h1 {
   margin-bottom: 14px;
-  font-size: clamp(38px, 5.4vw, 66px);
-  line-height: 1.08;
-  font-weight: 700
+  font-size: var(--t-h1);
+  line-height: 1.1;
+  font-weight: 600
 }
 h1 em {
   font-style: normal;
@@ -508,7 +482,7 @@ h1 em {
   position: absolute;
   left: -6px;
   bottom: -34px;
-  font: 500 11px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   letter-spacing: 0;
   color: #fff;
   background: var(--accent);
@@ -525,7 +499,7 @@ h1 em {
   border-radius: 2px
 }
 .lead {
-  font-size: clamp(17px, 1.6vw, 20px);
+  font-size: var(--t-lead);
   color: var(--ink-2);
   max-width: 46ch
 }
@@ -539,14 +513,14 @@ h1 em {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 20px;
-  font-size: 14px;
+  font-size: var(--t-xs);
   color: var(--ink-2);
   padding-top: 8px
 }
 .clients b {
-  font: 600 15px/1 var(--display);
+  font: 600 var(--t-s)/1 var(--body);
   color: var(--ink);
-  letter-spacing: -.01em
+  
 }
 
 /* Витрина на первом экране: единственное место, где стекло лежит на цвете */
@@ -595,7 +569,7 @@ h1 em {
   position: absolute;
   left: 14px;
   top: 14px;
-  font: 500 11px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   color: var(--ink);
   background: rgba(255, 255, 255, .7);
   padding: 7px 9px;
@@ -619,7 +593,7 @@ h1 em {
   height: 18px
 }
 .cursor span {
-  font: 600 12px/1 var(--body);
+  font: 600 var(--t-xs)/1 var(--body);
   color: #fff;
   background: #e5484d;
   padding: 5px 8px;
@@ -641,7 +615,7 @@ h1 em {
 }
 .w small {
   display: block;
-  font-size: 12px;
+  font-size: var(--t-xs);
   font-weight: 500;
   color: #2c3242;
   margin-bottom: 6px
@@ -652,13 +626,13 @@ h1 em {
   width: min(58%, 270px)
 }
 .w-metric .big {
-  font: 700 clamp(26px, 3.4vw, 36px)/1 var(--display);
+  font: 600 var(--t-h3)/1 var(--body);
   letter-spacing: -.03em;
   font-variant-numeric: tabular-nums
 }
 .w-metric .big span {
   display: block;
-  font: 500 14px/1.4 var(--body);
+  font: 500 var(--t-s)/1.4 var(--body);
   letter-spacing: 0;
   color: #2c3242;
   margin-top: 4px
@@ -691,7 +665,7 @@ h1 em {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: var(--t-xs);
   font-weight: 500;
   background: rgba(255, 255, 255, .6);
   border-radius: 12px;
@@ -718,7 +692,7 @@ h1 em {
   gap: 12px;
   border-radius: 999px;
   padding: 10px 18px 10px 10px;
-  font-size: 14px;
+  font-size: var(--t-xs);
   font-weight: 600
 }
 .w-avail .av {
@@ -730,7 +704,7 @@ h1 em {
   display: grid;
   place-items: center;
   color: #fff;
-  font: 600 14px/1 var(--display)
+  font: 600 var(--t-xs)/1 var(--body)
 }
 
 @media (max-width:600px) {
@@ -766,7 +740,7 @@ h1 em {
   object-fit: cover;
   background: linear-gradient(140deg, #6b3cf0, #c9a8ff 70%, #ffd1e8);
   color: #fff;
-  font: 600 34px/1 var(--display);
+  font: 600 var(--t-h3)/1 var(--body);
   display: grid;
   place-items: center;
   pointer-events: none
@@ -775,7 +749,7 @@ h1 em {
   display: flex;
   justify-content: space-between;
   gap: 6px;
-  font: 500 10.5px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   color: #2c3242;
   padding: 9px 4px 2px
 }
@@ -849,7 +823,7 @@ h1 em {
     bottom: 3%
   }
   #stage .sp span {
-    font-size: 12px;
+    
     padding: 6px 9px;
     white-space: nowrap
   }
@@ -874,10 +848,10 @@ h1 em {
   padding-top: var(--hero-top)
 }
 .hero h1 {
-  font-size: clamp(30px, min(5.4vw, calc(var(--vh)*.072)), 66px)
+  font-size: min(var(--t-h1), calc(var(--vh)*.072))
 }
 
-/* один промежуток между всеми группами текста; подпись «Text · Geologica Bold» висит под заголовком и входит в него */
+/* один промежуток между всеми группами текста; подпись «Text · Golos SemiBold» висит под заголовком и входит в него */
 .hero-copy {
   gap: var(--hero-gap)
 }
@@ -928,7 +902,7 @@ h1 em {
     display: none
   }
   .hero h1 {
-    font-size: clamp(28px, min(9.6vw, calc(var(--vh)*.06)), 40px)
+    font-size: min(var(--t-h1), calc(var(--vh)*.06))
   }
   .hero-head {
     gap: 10px
@@ -939,7 +913,7 @@ h1 em {
     display: none
   }
   .lead {
-    font-size: 16px
+    font-size: var(--t-p)
   }
 }
 @media (max-height:520px) and (max-width:979px) {
@@ -956,17 +930,18 @@ h1 em {
   padding: 7px 10px;
   border-radius: 10px;
   background: rgba(255, 255, 255, .7);
-  font-size: 13px;
+  font-size: var(--t-xs);
   font-weight: 600
 }
 .sp-foot {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: var(--t-xs);
   color: #2c3242
 }
 .sp-foot b {
-  font-family: var(--display)
+  font-weight: 600
 }
+
 .cmp {
   display: grid;
   gap: 6px;
@@ -981,7 +956,7 @@ h1 em {
   text-align: center;
   padding: 10px 12px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: var(--t-xs);
   font-weight: 600
 }
 .cmp-b.ink {
@@ -998,7 +973,7 @@ h1 em {
   margin-top: 8px
 }
 .vars span {
-  font: 500 10.5px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   padding: 5px 7px;
   border-radius: 6px;
   color: #2c3242
@@ -1022,7 +997,7 @@ h1 em {
   border-radius: 11px;
   background: linear-gradient(135deg, var(--accent), #c9a8ff);
   color: #fff;
-  font: 700 13px/1 var(--display);
+  font: 600 var(--t-xs)/1 var(--body);
   letter-spacing: -.02em;
   transition: transform .35s cubic-bezier(.2, .7, .2, 1), border-radius .35s
 }
@@ -1044,12 +1019,12 @@ img.mark {
 .lname {
   display: grid;
   gap: 3px;
-  font: 600 15px/1 var(--display);
+  font: 600 var(--t-s)/1 var(--body);
   letter-spacing: -.02em;
   white-space: nowrap
 }
 .lname small {
-  font: 500 12px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   letter-spacing: 0;
   color: var(--ink-2);
   transition: color .2s
@@ -1202,10 +1177,10 @@ img.mark {
   }
   .case .chip {
     padding: 8px 10px;
-    font-size: 12px
+    
   }
   .case .chip b {
-    font-size: 16px
+    font-size: var(--t-p)
   }
   .case .chip:nth-child(n+2) {
     display: none
@@ -1223,7 +1198,7 @@ section {
   max-width: 720px
 }
 .kicker {
-  font: 500 13px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   color: var(--accent);
   display: inline-flex;
   align-items: center;
@@ -1241,13 +1216,13 @@ section {
   font-size: 12px
 }
 h2 {
-  font-size: clamp(30px, 4.4vw, 52px);
+  font-size: var(--t-h2);
   line-height: 1.1;
-  font-weight: 700
+  font-weight: 600
 }
 .sec-head p:not(.kicker) {
   color: var(--ink-2);
-  font-size: 18px;
+  font-size: var(--t-lead);
   max-width: 58ch
 }
 
@@ -1271,7 +1246,7 @@ h2 {
   box-shadow: var(--shadow)
 }
 .aud h3 {
-  font-size: 24px;
+  font-size: var(--t-h4);
   font-weight: 600
 }
 .aud ul {
@@ -1327,9 +1302,9 @@ h2 {
 }
 .svc h3 {
   grid-area: t;
-  font-size: clamp(22px, 2.6vw, 32px);
+  font-size: var(--t-h3);
   font-weight: 600;
-  line-height: 1.1
+  line-height: 1.15
 }
 .svc p:not(.for) {
   grid-area: d;
@@ -1339,7 +1314,7 @@ h2 {
 }
 .svc .for {
   grid-area: f;
-  font: 500 13px/1.4 var(--mono);
+  font: 500 var(--t-mono)/1.4 var(--mono);
   color: var(--ink-2)
 }
 .term {
@@ -1349,12 +1324,12 @@ h2 {
   gap: 4px;
   justify-items: end;
   text-align: right;
-  font: 500 13px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   color: var(--ink-2);
   white-space: nowrap
 }
 .term b {
-  font: 600 clamp(18px, 1.8vw, 22px)/1 var(--display);
+  font: 600 var(--t-h4)/1 var(--body);
   letter-spacing: -.02em;
   color: var(--ink);
   font-variant-numeric: tabular-nums
@@ -1396,7 +1371,7 @@ h2 {
   flex-basis: 100%;
   margin-top: 4px;
   font: inherit;
-  font-size: 16px;
+  font-size: var(--t-p);
   padding: 12px 14px;
   border-radius: 14px;
   border: 1px solid transparent;
@@ -1409,7 +1384,7 @@ h2 {
 }
 .svc-note {
   margin-top: 18px;
-  font-size: 15px;
+  font-size: var(--t-s);
   color: var(--ink-2)
 }
 
@@ -1491,7 +1466,7 @@ h2 {
   left: 50%;
   bottom: -30px;
   transform: translateX(-50%);
-  font: 500 11px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   font-style: normal;
   color: #fff;
   background: var(--accent);
@@ -1535,7 +1510,7 @@ h2 {
   }
 }
 .shot .ph {
-  font: 600 14px/1.3 var(--body);
+  font: 600 var(--t-xs)/1.3 var(--body);
   color: rgba(255, 255, 255, .85);
   border: 1.5px dashed rgba(255, 255, 255, .6);
   border-radius: 16px;
@@ -1566,13 +1541,13 @@ h2 {
 .chip {
   border-radius: 14px;
   padding: 10px 14px;
-  font-size: 13px;
+  font-size: var(--t-xs);
   font-weight: 500;
   color: var(--ink)
 }
 .chip b {
   display: block;
-  font: 700 20px/1.1 var(--display);
+  font: 600 var(--t-h4)/1.1 var(--body);
   letter-spacing: -.02em;
   font-variant-numeric: tabular-nums
 }
@@ -1588,7 +1563,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 0;
-  font-size: 13px;
+  font-size: var(--t-xs);
   font-weight: 500;
   color: var(--ink-2);
   margin-inline-start: -21px;
@@ -1602,9 +1577,9 @@ h2 {
   color: #a7adbb
 }
 .case h3 {
-  font-size: clamp(21px, 2.2vw, 26px);
+  font-size: var(--t-h4);
   font-weight: 600;
-  line-height: 1.2
+  line-height: 1.25
 }
 .case p {
   color: var(--ink-2)
@@ -1614,7 +1589,7 @@ h2 {
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: var(--t-s);
   margin-top: 4px
 }
 @media (hover:hover) {
@@ -1693,23 +1668,23 @@ h2 {
   place-items: center;
   background: var(--surface);
   box-shadow: inset 0 0 0 2px var(--accent);
-  font: 500 14px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   color: var(--accent)
 }
 .step h3 {
   grid-area: t;
-  font-size: 20px;
+  font-size: var(--t-h4);
   font-weight: 600;
   align-self: end
 }
 .step p {
   grid-area: d;
-  font-size: 15px;
+  font-size: var(--t-s);
   color: var(--ink-2)
 }
 .step .you {
   grid-area: y;
-  font-size: 13px;
+  font-size: var(--t-xs);
   font-weight: 500;
   color: var(--ink);
   background: var(--paper);
@@ -1777,7 +1752,7 @@ h2 {
   align-items: center;
   gap: 8px;
   width: fit-content;
-  font: 500 13px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   color: var(--accent);
   background: #fff;
   padding: 7px 12px 7px 7px;
@@ -1792,16 +1767,16 @@ h2 {
   border-radius: 50%;
   background: var(--accent);
   color: #fff;
-  font: 700 12px/1 var(--display)
+  font: 600 var(--t-mono)/1 var(--body)
 }
 .ai-head h3 {
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 700;
-  line-height: 1.1
+  font-size: var(--t-h3);
+  font-weight: 600;
+  line-height: 1.15
 }
 .ai-head p:not(.ai-pin) {
   color: var(--ink-2);
-  font-size: 17px
+  font-size: var(--t-p)
 }
 .ai-cols {
   display: grid;
@@ -1825,7 +1800,7 @@ h2 {
   box-shadow: 0 10px 30px -12px rgba(107, 60, 240, .35)
 }
 .ai-label {
-  font: 500 12px/1 var(--mono);
+  font: 500 var(--t-mono)/1 var(--mono);
   margin-bottom: 12px;
   color: var(--ink-2)
 }
@@ -1838,7 +1813,7 @@ h2 {
   padding: 0;
   display: grid;
   gap: 10px;
-  font-size: 15px
+  font-size: var(--t-s)
 }
 .ai-cols li {
   display: flex;
@@ -1855,7 +1830,7 @@ h2 {
   content: "✓";
   flex: none;
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
   margin-top: 1px
 }
@@ -1868,7 +1843,7 @@ h2 {
   box-shadow: var(--shadow)
 }
 .panel h3 {
-  font-size: 13px;
+  font-size: var(--t-mono);
   font-family: var(--mono);
   font-weight: 500;
   letter-spacing: 0;
@@ -1903,13 +1878,13 @@ h2 {
   align-content: start
 }
 .job-when time {
-  font-size: 14px;
+  font-size: var(--t-xs);
   color: var(--ink);
   font-weight: 500;
   font-variant-numeric: tabular-nums
 }
 .job-when span {
-  font: 500 12px/1.3 var(--mono);
+  font: 500 var(--t-mono)/1.3 var(--mono);
   color: var(--ink-2)
 }
 .job-body {
@@ -1918,12 +1893,12 @@ h2 {
   min-width: 0
 }
 .job-body>b {
-  font: 600 20px/1.25 var(--display);
+  font: 600 var(--t-h4)/1.25 var(--body);
   letter-spacing: -.01em
 }
 .job-co {
   color: var(--ink-2);
-  font-size: 15px
+  font-size: var(--t-s)
 }
 .job ul {
   list-style: none;
@@ -1936,7 +1911,7 @@ h2 {
 .job li {
   display: flex;
   gap: 12px;
-  font-size: 15px;
+  font-size: var(--t-s);
   color: var(--ink-2)
 }
 .job li::before {
@@ -1954,7 +1929,7 @@ h2 {
   gap: 8px
 }
 .tags span {
-  font-size: 13px;
+  font-size: var(--t-xs);
   font-weight: 500;
   padding: 7px 11px;
   border-radius: 999px;
@@ -1994,7 +1969,7 @@ h2 {
   font-weight: 600
 }
 .sk p {
-  font-size: 14px;
+  font-size: var(--t-s);
   color: var(--ink-2)
 }
 .edu {
@@ -2014,7 +1989,7 @@ h2 {
   align-content: start
 }
 .college>b {
-  font: 600 20px/1.25 var(--display);
+  font: 600 var(--t-h4)/1.25 var(--body);
   letter-spacing: -.01em;
   max-width: 24ch
 }
@@ -2022,7 +1997,7 @@ h2 {
   color: var(--ink-2)
 }
 .college time {
-  font-size: 14px;
+  font-size: var(--t-s);
   color: var(--ink-2);
   font-variant-numeric: tabular-nums;
   margin-top: 6px
@@ -2035,7 +2010,7 @@ h2 {
   border-top: 1px solid var(--line)
 }
 .edu-add small {
-  font-size: 14px;
+  font-size: var(--t-s);
   color: var(--ink-2)
 }
 .edu-add b {
@@ -2048,7 +2023,7 @@ h2 {
   align-items: center;
   gap: 8px;
   margin-bottom: 6px;
-  font-size: 13px;
+  font-size: var(--t-xs);
   font-weight: 600;
   color: #a1121c;
   background: #ffe9ea;
@@ -2085,7 +2060,7 @@ h2 {
   font-weight: 600
 }
 .courses span {
-  font-size: 14px;
+  font-size: var(--t-s);
   color: var(--ink-2)
 }
 .honor-sm {
@@ -2114,7 +2089,7 @@ h2 {
 }
 .contact .sub {
   color: #b9bfcc;
-  font-size: 18px;
+  font-size: var(--t-lead);
   margin-top: 12px;
   max-width: 40ch
 }
@@ -2142,7 +2117,7 @@ h2 {
 }
 .ch small {
   display: block;
-  font-size: 13px;
+  font-size: var(--t-xs);
   color: #9aa1b1
 }
 .ch span {
@@ -2177,7 +2152,7 @@ h2 {
   border: 0;
   border-radius: 999px;
   padding: 9px 14px;
-  font: 600 13px/1 var(--body);
+  font: 600 var(--t-xs)/1 var(--body);
   cursor: pointer;
   white-space: nowrap
 }
@@ -2216,7 +2191,7 @@ form {
   padding: 10px;
   border-radius: 999px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--t-xs);
   cursor: pointer;
   color: var(--ink-2)
 }
@@ -2232,7 +2207,7 @@ form {
 .field {
   display: grid;
   gap: 6px;
-  font-size: 14px;
+  font-size: var(--t-xs);
   font-weight: 500
 }
 .field small {
@@ -2277,7 +2252,7 @@ form .btn {
 .field input,
 .field textarea {
   font: inherit;
-  font-size: 16px;
+  font-size: var(--t-p);
   color: var(--ink);
   background: var(--paper);
   border: 1px solid transparent;
@@ -2296,7 +2271,7 @@ form .btn {
   resize: vertical
 }
 .form-note {
-  font-size: 13px;
+  font-size: var(--t-xs);
   color: var(--ink-2)
 }
 .form-note.ok {
@@ -2312,7 +2287,7 @@ form .btn {
   display: flex;
   gap: 10px;
   align-items: flex-start;
-  font-size: 13px;
+  font-size: var(--t-xs);
   line-height: 1.5;
   color: var(--ink-2);
   cursor: pointer
@@ -2354,7 +2329,7 @@ form .btn {
   min-width: 0
 }
 .opts legend {
-  font-size: 14px;
+  font-size: var(--t-xs);
   font-weight: 500;
   padding: 0;
   margin-bottom: 8px
@@ -2374,7 +2349,7 @@ form .btn {
   padding: 9px 13px;
   border-radius: 999px;
   background: var(--paper);
-  font-size: 14px;
+  font-size: var(--t-xs);
   font-weight: 500;
   cursor: pointer;
   transition: background .2s, color .2s
@@ -2411,7 +2386,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px;
-  font-size: 14px;
+  font-size: var(--t-xs);
   color: var(--ink-2)
 }
 footer a {
@@ -2523,7 +2498,7 @@ footer a {
   padding: 12px 16px;
   border-radius: 16px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: var(--t-s);
   color: var(--ink)
 }
 @media (hover:hover) {
@@ -2760,7 +2735,7 @@ footer a {
   color: var(--paper);
   padding: 15px 20px;
   border-radius: 999px;
-  font: 600 15px/1 var(--body);
+  font: 600 var(--t-s)/1 var(--body);
   text-decoration: none;
   transition: top .2s
 }
@@ -2829,7 +2804,7 @@ main:focus {
 
 /* подпись «обязательно» читается на телефоне */
 .field small {
-  font-size: 13px
+  font-size: var(--t-xs)
 }
 
 /* ловушка для спам-ботов в форме */
@@ -2868,7 +2843,7 @@ main:focus {
     margin-top: -6px;
     background: none;
     border: 0;
-    font: 600 15px/1 var(--body);
+    font: 600 var(--t-s)/1 var(--body);
     color: var(--accent);
     cursor: pointer;
     width: fit-content
@@ -2880,20 +2855,8 @@ main:focus {
   .clients>span {
     flex-basis: 100%
   }
-  .step p,
-  .job li,
-  .job-co,
-  .ai-cols ul,
-  .svc p:not(.for) {
-    font-size: 16px
-  }
-  .sk p,
-  .courses span,
-  .edu-add small,
-  .college time,
-  .svc-note {
-    font-size: 15px
-  }
+
+
 }
 
 /* тач-зоны от 44px */
@@ -2991,13 +2954,13 @@ main:focus {
   margin: 0
 }
 .exp-sum .big {
-  font: 700 44px/1 var(--display);
+  font: 600 var(--t-h2)/1 var(--body);
   letter-spacing: -.03em;
   color: var(--ink)
 }
 .exp-sum .big small {
   display: block;
-  font: 500 15px/1.4 var(--body);
+  font: 500 var(--t-s)/1.4 var(--body);
   color: var(--ink-2);
   letter-spacing: 0;
   margin-top: 8px
@@ -3008,7 +2971,7 @@ main:focus {
   padding: 0;
   display: grid;
   gap: 10px;
-  font-size: 15px
+  font-size: var(--t-s)
 }
 .exp-sum li {
   display: flex;
@@ -3123,7 +3086,7 @@ try {
     <p class="status"><span class="dot" aria-hidden="true"></span>Беру проекты и рассматриваю вакансии</p>
     <div class="hero-head">
     <p class="hero-name"><b>Ярослав Алехно</b><span>UX/UI дизайнер цифровых продуктов</span></p>
-    <h1>Проектирую сайты, которые <span class="sel-h" data-spec="Text · Geologica Bold"><em>приводят к заявке</em></span></h1>
+    <h1>Проектирую сайты, которые <span class="sel-h" data-spec="Text · Golos SemiBold"><em>приводят к заявке</em></span></h1>
     </div>
     <p class="lead">Разбираюсь, как устроен продукт, убираю лишние шаги на пути к заявке и проектирую интерфейс, в котором легко найти нужное.</p>
     <div class="cta">
