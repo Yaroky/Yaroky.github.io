@@ -2346,6 +2346,11 @@ footer {
 footer a {
   color: var(--ink-2)
 }
+.f-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px
+}
 .theme {
   display: grid;
   place-items: center;
@@ -3890,7 +3895,7 @@ try {
 <!-- ══════════ Подвал ══════════ -->
 <footer class="wrap">
   <span>© 2026 Ярослав Алехно</span>
-  <a href="/privacy">Политика конфиденциальности</a>
+  <span class="f-links"><a href="/privacy">Политика конфиденциальности</a><a href="/consent">Согласие на обработку персональных данных</a></span>
 </footer>
 <script>
 (function() {
