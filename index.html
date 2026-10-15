@@ -2244,8 +2244,26 @@ form {
   color: var(--ink-2);
   opacity: 1
 }
-.field input[aria-invalid="true"] {
-  border-color: #c0362c
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: #c0362c;
+  background: rgba(192, 54, 44, .07)
+}
+/* незаполненные обязательные поля подсвечиваются после попытки отправить форму */
+.field[data-invalid],
+.opts[data-invalid] legend,
+.agree[data-invalid] {
+  color: #c0362c
+}
+.opts[data-invalid] label {
+  box-shadow: inset 0 0 0 1.5px #c0362c
+}
+.src-other[aria-invalid="true"] {
+  box-shadow: inset 0 0 0 1.5px #c0362c
+}
+.agree[data-invalid] input {
+  box-shadow: inset 0 0 0 1.5px #c0362c;
+  background: rgba(192, 54, 44, .07)
 }
 #form-msg:empty {
   display: none
@@ -3524,7 +3542,7 @@ try {
       </fieldset>
       <div class="row2">
         <label class="field" for="f-name" data-k="Имя">Имя<input id="f-name" name="name" autocomplete="name" placeholder="Анна"></label>
-        <label class="field" for="f-contact" data-k="Контакт"><span>Telegram или почта <small>обязательно</small></span><input id="f-contact" name="contact" placeholder="@username или почта" required aria-describedby="form-msg"></label>
+        <label class="field" for="f-contact" data-k="Контакт"><span>Telegram или почта</span><input id="f-contact" name="contact" placeholder="@username или почта" required aria-describedby="form-msg"></label>
       </div>
       <label class="field" for="f-task" data-for="client" data-k="Задача">О проекте<textarea id="f-task" name="task" placeholder="Что за продукт, что не работает сейчас, к какому сроку нужно"></textarea></label>
       <label class="field" for="f-link" data-for="hr" data-k="Ссылка">Ссылка на вакансию<input id="f-link" name="link" type="url" placeholder="hh.ru/vacancy/…"></label>
@@ -3650,12 +3668,64 @@ try {
   });
   var c = document.getElementById('f-contact'),
     btn = form.querySelector('[type=submit]');
-  c.addEventListener('input', function() {
-    if (c.value.trim() && c.getAttribute('aria-invalid')) {
-      c.removeAttribute('aria-invalid');
+  /* все видимые поля обязательные: пустые подсвечиваем красным, подсветка снимается, когда поле заполнено */
+  function filled(el) {
+    if (el.classList.contains('agree')) return document.getElementById('f-consent').checked;
+    if (el.tagName === 'FIELDSET') {
+      if (!el.querySelector('input:checked')) return false;
+      if (el.classList.contains('src') && document.getElementById('src-5').checked) return !!document.getElementById('src-other').value.trim();
+      return true
+    }
+    return !!el.querySelector('input,textarea').value.trim()
+  }
+
+  function mark(el, bad) {
+    if (bad) el.setAttribute('data-invalid', '');
+    else el.removeAttribute('data-invalid');
+    var inp = el.tagName === 'FIELDSET' ? (el.classList.contains('src') ? document.getElementById('src-other') : null) : el.querySelector('input:not([type=checkbox]),textarea');
+    if (inp) {
+      var empty = bad && (el.tagName !== 'FIELDSET' || (document.getElementById('src-5').checked && !inp.value.trim()));
+      if (empty) inp.setAttribute('aria-invalid', 'true');
+      else inp.removeAttribute('aria-invalid')
+    }
+  }
+
+  function required() {
+    var role = box.dataset.role;
+    return [].slice.call(form.querySelectorAll('[data-k], .agree')).filter(function(el) {
+      return !el.dataset.for || el.dataset.for === role
+    })
+  }
+
+  function validate() {
+    var bad = [];
+    required().forEach(function(el) {
+      var ok = filled(el);
+      mark(el, !ok);
+      if (!ok) bad.push(el)
+    });
+    return bad
+  }
+
+  function recheck(e) {
+    var el = e.target.closest('[data-k], .agree');
+    if (!el || !el.hasAttribute('data-invalid')) return;
+    if (filled(el)) mark(el, false);
+    if (!form.querySelector('[data-invalid]') && msg.classList.contains('err')) {
       msg.className = 'form-note';
       msg.textContent = ''
     }
+  }
+  form.addEventListener('input', recheck);
+  form.addEventListener('change', recheck);
+  form.querySelectorAll('input[name=role]').forEach(function(r) {
+    r.addEventListener('change', function() {
+      form.querySelectorAll('[data-invalid]').forEach(function(el) {
+        mark(el, false)
+      });
+      msg.className = 'form-note';
+      msg.textContent = ''
+    })
   });
 
   function busy(on) {
@@ -3688,18 +3758,18 @@ try {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     if (btn.getAttribute('aria-disabled')) return;
-    if (!c.value.trim()) {
+    var bad = validate();
+    if (bad.length) {
       msg.className = 'form-note err';
-      msg.textContent = 'Укажите Telegram или почту, чтобы я мог ответить.';
-      c.setAttribute('aria-invalid', 'true');
-      c.focus();
-      return
-    }
-    var agree = document.getElementById('f-consent');
-    if (!agree.checked) {
-      msg.className = 'form-note err';
-      msg.textContent = 'Отметьте согласие на обработку персональных данных, без него я не смогу принять заявку.';
-      agree.focus();
+      msg.textContent = bad.length === 1 && bad[0].classList.contains('agree') ? 'Отметьте согласие на обработку персональных данных, без него я не смогу принять заявку.' : 'Заполните поля, отмеченные красным.';
+      var first = bad[0].querySelector('[aria-invalid="true"]') || bad[0].querySelector('input,textarea');
+      bad[0].scrollIntoView({
+        block: 'center',
+        behavior: 'smooth'
+      });
+      if (first) first.focus({
+        preventScroll: true
+      });
       return
     }
     busy(true);
