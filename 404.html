@@ -17,7 +17,7 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="Страница не найдена — Ярослав Алехно">
 <meta property="og:description" content="Такой страницы на сайте нет. Перейдите на главную или к кейсам.">
-<meta property="og:image" content="https://yaroslavalekhno.ru/img/og/default.jpg">
+<meta property="og:image" content="https://yaroslavalekhno.ru/img/og/default.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
@@ -824,7 +824,7 @@ h1 em {
   font-size: min(var(--t-h1), calc(var(--vh)*.072))
 }
 
-/* один промежуток между всеми группами текста; подпись «Text · Geologica Bold» висит под заголовком и входит в него */
+/* один промежуток между всеми группами текста; подпись «Text · Geologica SemiBold» висит под заголовком и входит в него */
 .hero-copy {
   gap: var(--hero-gap)
 }
@@ -1056,16 +1056,29 @@ img.mark {
     transform: none
   }
 }
+/* пульс — отдельным кольцом через transform и opacity, чтобы анимацию считала видеокарта, а не перерисовка */
 .dot {
+  position: relative;
+  flex: none
+}
+.dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(17, 132, 91, .45);
+  opacity: 0;
   animation: pulse 2.4s ease-out 3
 }
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(17, 132, 91, .45)
+    transform: scale(1);
+    opacity: 1
   }
   70%,
   100% {
-    box-shadow: 0 0 0 9px rgba(17, 132, 91, 0)
+    transform: scale(3.25);
+    opacity: 0
   }
 }
 .anim .rv {
@@ -3698,7 +3711,7 @@ try {
 </script>
 <nav class="nav wrap" aria-label="Основное меню">
   <div class="nav-in glass">
-    <a class="logo" href="/" aria-label="Ярослав Алехно, на главную"><img class="mark" src="/img/me/avatar.webp" alt="" width="36" height="36"><span class="lname">Ярослав Алехно<small>UX/UI дизайнер</small></span></a>
+    <a class="logo" href="/" aria-label="Ярослав Алехно, на главную"><img class="mark" src="/img/me/avatar-72.webp" srcset="/img/me/avatar-72.webp 2x, /img/me/avatar.webp 3x" alt="" width="36" height="36"><span class="lname">Ярослав Алехно<small>UX/UI дизайнер</small></span></a>
     <ul>
       <li><a href="/#services">Услуги</a></li>
       <li><a href="/#cases">Кейсы</a></li>
@@ -3964,8 +3977,9 @@ try {
       if (t) nio.observe(t)
     });
   }
+  /* scrollY читаем только в обработчике прокрутки: здесь он заставил бы браузер пересчитать раскладку после правок выше */
   var nav = document.querySelector('.nav'),
-    last = window.scrollY;
+    last = 0;
   window.addEventListener('scroll', function() {
     var y = window.scrollY;
     if (nav) {

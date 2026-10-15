@@ -17,7 +17,7 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="Ярослав Алехно — UX/UI дизайнер сайтов и приложений">
 <meta property="og:description" content="UX/UI дизайнер сайтов и цифровых продуктов. Проектирую корпоративные сайты, лендинги и приложения, которые понятны пользователю и приводят к заявке.">
-<meta property="og:image" content="https://yaroslavalekhno.ru/img/og/default.jpg">
+<meta property="og:image" content="https://yaroslavalekhno.ru/img/og/default.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
@@ -887,7 +887,7 @@ h1 em {
   font-size: min(var(--t-h1), calc(var(--vh)*.072))
 }
 
-/* один промежуток между всеми группами текста; подпись «Text · Geologica Bold» висит под заголовком и входит в него */
+/* один промежуток между всеми группами текста; подпись «Text · Geologica SemiBold» висит под заголовком и входит в него */
 .hero-copy {
   gap: var(--hero-gap)
 }
@@ -1119,16 +1119,29 @@ img.mark {
     transform: none
   }
 }
+/* пульс — отдельным кольцом через transform и opacity, чтобы анимацию считала видеокарта, а не перерисовка */
 .dot {
+  position: relative;
+  flex: none
+}
+.dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(17, 132, 91, .45);
+  opacity: 0;
   animation: pulse 2.4s ease-out 3
 }
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(17, 132, 91, .45)
+    transform: scale(1);
+    opacity: 1
   }
   70%,
   100% {
-    box-shadow: 0 0 0 9px rgba(17, 132, 91, 0)
+    transform: scale(3.25);
+    opacity: 0
   }
 }
 .anim .rv {
@@ -3108,7 +3121,7 @@ try {
 
 <nav class="nav wrap" aria-label="Основное меню">
   <div class="nav-in glass">
-    <a class="logo" href="#top" aria-label="Ярослав Алехно, на главную"><img class="mark" src="/img/me/avatar.webp" alt="" width="36" height="36"><span class="lname">Ярослав Алехно<small>UX/UI дизайнер</small></span></a>
+    <a class="logo" href="#top" aria-label="Ярослав Алехно, на главную"><img class="mark" src="/img/me/avatar-72.webp" srcset="/img/me/avatar-72.webp 2x, /img/me/avatar.webp 3x" alt="" width="36" height="36"><span class="lname">Ярослав Алехно<small>UX/UI дизайнер</small></span></a>
     <ul>
       <li><a href="#services">Услуги</a></li>
       <li><a href="#cases">Кейсы</a></li>
@@ -3139,7 +3152,7 @@ try {
     <p class="status"><span class="dot" aria-hidden="true"></span>Беру проекты и рассматриваю вакансии</p>
     <div class="hero-head">
     <p class="hero-name"><b>Ярослав Алехно</b><span>UX/UI дизайнер цифровых продуктов</span></p>
-    <h1>Проектирую сайты, которые <span class="sel-h" data-spec="Text · Geologica Bold"><em>приводят к заявке</em></span></h1>
+    <h1>Проектирую сайты, которые <span class="sel-h" data-spec="Text · Geologica SemiBold"><em>приводят к заявке</em></span></h1>
     </div>
     <p class="lead">Разбираюсь, как устроен продукт, убираю лишние шаги на пути к заявке и проектирую интерфейс, в котором легко найти нужное.</p>
     <div class="cta">
@@ -3168,7 +3181,7 @@ try {
       <div class="vars"><span class="on">Default</span><span>Hover</span><span>Pressed</span></div>
     </div>
     <span class="hint">drag me</span>
-    <div class="w w-avail glass"><span class="av"><img src="/img/me/avatar.webp" alt="" width="38" height="38"></span>Отвечаю в течение дня</div>
+    <div class="w w-avail glass"><span class="av"><img src="/img/me/avatar-72.webp" srcset="/img/me/avatar-72.webp 2x, /img/me/avatar.webp 3x" alt="" width="38" height="38"></span>Отвечаю в течение дня</div>
   </div>
 </header>
 
@@ -3251,7 +3264,7 @@ try {
   </div>
   <div class="cases">
     <a class="case wide" href="/techgas-tk">
-      <div class="shot s1"><picture><source media="(max-width:600px)" srcset="../img/techgas-tk/cover-m.webp" width="1760" height="1320"><img src="/img/techgas-tk/cover.webp" alt="Сайт Техгаз-ТК на ноутбуке и телефоне" width="2400" height="1200" loading="lazy" decoding="async"></picture>
+      <div class="shot s1"><picture><source media="(max-width:600px)" srcset="/img/techgas-tk/cover-m-880.webp 880w, /img/techgas-tk/cover-m.webp 1760w" sizes="calc(100vw - 32px)" width="1760" height="1320"><img src="/img/techgas-tk/cover.webp" srcset="/img/techgas-tk/cover-1200.webp 1200w, /img/techgas-tk/cover.webp 2400w" sizes="(min-width:1232px) 1136px, calc(100vw - 64px)" alt="Сайт Техгаз-ТК на ноутбуке и телефоне" width="2400" height="1200" loading="lazy" decoding="async">
         <div class="chips"><span class="chip glass"><b>5% → 6,2%</b>конверсия в заявки</span><span class="chip glass"><b>65% → 53%</b>отказы</span><span class="chip glass"><b>30+</b>страниц</span>
         </div>
       </div>
@@ -3263,7 +3276,7 @@ try {
       </div>
     </a>
     <a class="case" href="/skydns">
-      <div class="shot s2"><picture><source media="(max-width:600px)" srcset="../img/skydns/cover-m.webp" width="1760" height="1320"><img src="/img/skydns/cover.webp" alt="Лендинг SkyDNS до и после редизайна" width="2400" height="1200" loading="lazy" decoding="async"></picture>
+      <div class="shot s2"><picture><source media="(max-width:600px)" srcset="/img/skydns/cover-m-880.webp 880w, /img/skydns/cover-m.webp 1760w" sizes="calc(100vw - 32px)" width="1760" height="1320"><img src="/img/skydns/cover.webp" srcset="/img/skydns/cover-1200.webp 1200w, /img/skydns/cover.webp 2400w" sizes="(min-width:1232px) 556px, (min-width:880px) calc(50vw - 44px), calc(100vw - 64px)" alt="Лендинг SkyDNS до и после редизайна" width="2400" height="1200" loading="lazy" decoding="async">
         <div class="chips"><span class="chip glass"><b>2 месяца</b>от анализа до макетов</span></div>
       </div>
       <div class="case-body">
@@ -3274,7 +3287,7 @@ try {
       </div>
     </a>
     <a class="case" href="/promural">
-      <div class="shot s3"><picture><source media="(max-width:600px)" srcset="../img/promural/cover-m.webp" width="1760" height="1320"><img src="/img/promural/cover.webp" alt="Сайт ПромУрал на ноутбуке, планшете и телефоне" width="2400" height="1200" loading="lazy" decoding="async"></picture>
+      <div class="shot s3"><picture><source media="(max-width:600px)" srcset="/img/promural/cover-m-880.webp 880w, /img/promural/cover-m.webp 1760w" sizes="calc(100vw - 32px)" width="1760" height="1320"><img src="/img/promural/cover.webp" srcset="/img/promural/cover-1200.webp 1200w, /img/promural/cover.webp 2400w" sizes="(min-width:1232px) 556px, (min-width:880px) calc(50vw - 44px), calc(100vw - 64px)" alt="Сайт ПромУрал на ноутбуке, планшете и телефоне" width="2400" height="1200" loading="lazy" decoding="async">
         <div class="chips"><span class="chip glass"><b>3 месяца</b>от нуля до запуска</span></div>
       </div>
       <div class="case-body">
@@ -3285,7 +3298,7 @@ try {
       </div>
     </a>
     <a class="case wide" href="/carpooling">
-      <div class="shot s4"><picture><source media="(max-width:600px)" srcset="../img/carpooling/cover-m.webp" width="1760" height="1320"><img src="/img/carpooling/cover.webp" alt="Экраны приложения для совместных поездок: пассажир, водитель и поездка в тёмной теме" width="2400" height="1200" loading="lazy" decoding="async"></picture>
+      <div class="shot s4"><picture><source media="(max-width:600px)" srcset="/img/carpooling/cover-m-880.webp 880w, /img/carpooling/cover-m.webp 1760w" sizes="calc(100vw - 32px)" width="1760" height="1320"><img src="/img/carpooling/cover.webp" srcset="/img/carpooling/cover-1200.webp 1200w, /img/carpooling/cover.webp 2400w" sizes="(min-width:1232px) 1136px, calc(100vw - 64px)" alt="Экраны приложения для совместных поездок: пассажир, водитель и поездка в тёмной теме" width="2400" height="1200" loading="lazy" decoding="async">
         <div class="chips"><span class="chip glass"><b>2 роли</b>водитель и пассажир</span></div>
       </div>
       <div class="case-body">
@@ -4046,8 +4059,9 @@ try {
     });
   });
 
+  /* scrollY читаем только в обработчике прокрутки: здесь он заставил бы браузер пересчитать раскладку после правок выше */
   var nav = document.querySelector('.nav'),
-    last = window.scrollY;
+    last = 0;
   window.addEventListener('scroll', function() {
     var y = window.scrollY;
     if (nav) {

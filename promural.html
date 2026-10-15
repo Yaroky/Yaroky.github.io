@@ -20,7 +20,7 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="Кейс: корпоративный сайт для ПромУрал — Ярослав Алехно">
 <meta property="og:description" content="Сайт поставщика пищевого оборудования с нуля: структура, контент, дизайн, адаптив и запуск на Tilda за 3 месяца.">
-<meta property="og:image" content="https://yaroslavalekhno.ru/img/og/promural.jpg">
+<meta property="og:image" content="https://yaroslavalekhno.ru/img/og/promural.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
@@ -77,7 +77,7 @@
       "description": "Сайт поставщика пищевого оборудования с нуля: структура, контент, дизайн, адаптив и запуск на Tilda за 3 месяца.",
       "url": "https://yaroslavalekhno.ru/promural",
       "inLanguage": "ru",
-      "image": "https://yaroslavalekhno.ru/img/og/promural.jpg",
+      "image": "https://yaroslavalekhno.ru/img/og/promural.jpg?v=2",
       "creator": {
         "@type": "Person",
         "@id": "https://yaroslavalekhno.ru/#person",
@@ -886,7 +886,7 @@ h1 em {
   font-size: min(var(--t-h1), calc(var(--vh)*.072))
 }
 
-/* один промежуток между всеми группами текста; подпись «Text · Geologica Bold» висит под заголовком и входит в него */
+/* один промежуток между всеми группами текста; подпись «Text · Geologica SemiBold» висит под заголовком и входит в него */
 .hero-copy {
   gap: var(--hero-gap)
 }
@@ -1118,16 +1118,29 @@ img.mark {
     transform: none
   }
 }
+/* пульс — отдельным кольцом через transform и opacity, чтобы анимацию считала видеокарта, а не перерисовка */
 .dot {
+  position: relative;
+  flex: none
+}
+.dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(17, 132, 91, .45);
+  opacity: 0;
   animation: pulse 2.4s ease-out 3
 }
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(17, 132, 91, .45)
+    transform: scale(1);
+    opacity: 1
   }
   70%,
   100% {
-    box-shadow: 0 0 0 9px rgba(17, 132, 91, 0)
+    transform: scale(3.25);
+    opacity: 0
   }
 }
 .anim .rv {
@@ -3671,7 +3684,7 @@ try {
 </script>
 <nav class="nav wrap" aria-label="Основное меню">
   <div class="nav-in glass">
-    <a class="logo" href="/" aria-label="Ярослав Алехно, на главную"><img class="mark" src="/img/me/avatar.webp" alt="" width="36" height="36"><span class="lname">Ярослав Алехно<small>UX/UI дизайнер</small></span></a>
+    <a class="logo" href="/" aria-label="Ярослав Алехно, на главную"><img class="mark" src="/img/me/avatar-72.webp" srcset="/img/me/avatar-72.webp 2x, /img/me/avatar.webp 3x" alt="" width="36" height="36"><span class="lname">Ярослав Алехно<small>UX/UI дизайнер</small></span></a>
     <ul>
       <li><a href="/#services">Услуги</a></li>
       <li><a href="/#cases">Кейсы</a></li>
@@ -3726,7 +3739,7 @@ try {
   </aside>
 </header>
 <div class="wrap cover-wrap">
-  <div class="shot cover s3"><picture><source media="(max-width:700px)" srcset="../img/promural/cover-m.webp" width="1760" height="1320"><img src="/img/promural/cover.webp" alt="Обложка проекта ПромУрал" width="2400" height="1200" fetchpriority="high"></picture>
+  <div class="shot cover s3"><picture><source media="(max-width:700px)" srcset="/img/promural/cover-m-880.webp 880w, /img/promural/cover-m.webp 1760w" sizes="calc(100vw - 32px)" width="1760" height="1320"><img src="/img/promural/cover.webp" srcset="/img/promural/cover-1200.webp 1200w, /img/promural/cover.webp 2400w" sizes="(min-width:1232px) 1136px, calc(100vw - 64px)" alt="Обложка проекта ПромУрал" width="2400" height="1200" fetchpriority="high">
     <div class="chips"><span class="chip glass"><b>3 месяца</b>от нуля до запуска</span><span class="chip glass"><b>5</b>адаптивных версий</span>
     </div>
   </div>
@@ -4087,8 +4100,9 @@ try {
       if (t) nio.observe(t)
     });
   }
+  /* scrollY читаем только в обработчике прокрутки: здесь он заставил бы браузер пересчитать раскладку после правок выше */
   var nav = document.querySelector('.nav'),
-    last = window.scrollY;
+    last = 0;
   window.addEventListener('scroll', function() {
     var y = window.scrollY;
     if (nav) {
